@@ -13,5 +13,6 @@ class Choice extends Model
 	{
 		return $this->hasMany(Vote::class,'choice_id');
 	}
+	
 
 }

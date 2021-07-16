@@ -21,9 +21,9 @@ class CreateVotesTable extends Migration
             $table->bigInteger('kelas_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('choice_id')->references('id')->on('choices');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('poll_id')->references('id')->on('polls');
+            $table->foreign('choice_id')->references('id')->on('choices')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('poll_id')->references('id')->on('polls')->onDelete('cascade');
             $table->foreign('kelas_id')->references('id')->on('kelas');
         });
     }

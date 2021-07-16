@@ -1,37 +1,51 @@
 @extends('template.layout')
 @section('title','Admin Dashboard')
+@section('home','active-nav-item')
 
 @section('content')
 
-<h1>Halaman Admin</h1>
-
 @if(session('status'))
-<h1 style="color: green">{{session('status')}}</h1>
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}</div>
 @endif
-<a href="/logout">Logout</a>
-<a href="{{route('poll.create')}}">Buat Polling</a>
-<a href="/manageuser">Buat user</a>
+@if(session('delete'))
+<div class="alert alert-danger"><li class="fa fa-trash"></li> {{session('delete')}}</div>
+@endif
+<div class="h3">Data Voting</div>
+<div class="table-responsive">
+	<table class="table table-bordered table-hover shadow">
+		<caption>Made by MOHAMAD RIYAN</caption>
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">No</th>
+				<th scope="col">Title</th>
+				<th scope="col">Description</th>
+				<th scope="col">Deadline</th>
+				<th scope="col">Be made by</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($poll as $data)
 
-<table border="2px solid black">
-	<tr>
-		<th>No</th>
-		<th>Judul</th>
-		
-		<th>Description</th>
-		<th>Di Buat oleh</th>
-		<th>Deadline</th>
-		<th>Action</th>
-	</tr>
-	@foreach($poll as $data)
-
-	<tr>
-		<td>{{$data->id}}</td>
-		<td>{{$data->title}}</td>
-		<td>{{$data->description}}</td>
-		<td>{{$data->creator->name}}</td>
-		<td>{{$data->deadline}}</td>
-		<td><a href="">Hapus</a><a href="{{route('poll.edit',['poll' => $data->id])}}"> Edit data</a></td>
-	</tr>
-	@endforeach
-</table>
-@endsection
+			<tr>
+				<td>{{$loop->iteration}}</td>
+				<td>{{$data->title}}</td>
+				<td>{{$data->description}}</td>
+				<td>{{$data->deadline}}</td>
+				<td>{{$data->creator->name}}</td>
+				<td>
+					<form action="{{route('poll.destroy',['poll' => $data->id])}}" method="post" class="d-inline"> 
+						@csrf
+						@method('delete')
+						<button type="submit" class="btn btn-danger" style="width: 120px;"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+					</form>
+					<br>
+					<a style="width: 120px;" href="{{route('poll.edit',['poll' => $data->id])}}" class="btn btn-warning text-light mt-2 "><i class="fa fa-edit" aria-hidden="true"></i> Edit data</a></td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+	<!-- Modal -->
+	
+	@endsection

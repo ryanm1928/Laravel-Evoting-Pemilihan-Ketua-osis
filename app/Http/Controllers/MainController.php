@@ -7,17 +7,19 @@ use App\Models\Poll;
 use App\Models\Choice;
 use App\Models\Vote;
 use App\Models\User;
+use Hash;
 class MainController extends Controller
 {
 
 	public function polling(Poll $id)
 	{
-
-		return view('user.polling',['poll' => $id]);
+		$hitung = Choice::where('id',">",0)->count();
+		return view('user.polling',['poll' => $id,'hitung' => $hitung]);
 	}
 
 	public function actionpolling(Request $request, $id)
 	{
+
 
 		$request->validate(
 			[
@@ -36,48 +38,54 @@ class MainController extends Controller
 		$data->poll_id = $id;
 		$data->kelas_id = auth()->user()->kelas_id;
 		$data->save();
-		return redirect('user')->with('status','anda berhasil melakukan polling');
+		return redirect('user')->with('status','Voting berhasil');
 
 
 	}
-	public function resultvote($id)
-	{
-		$data  = Poll::where('id',$id)->with('choice.vote')->first();
-		$jml = 0;
-		foreach($data->choice as $ch) {
-			$jml += $ch->vote->count();
-		}
-
-		return view('User.result',['data' => $data,'jml' => $jml]);
-
-		// return view('user.result',['data' => $data]);
-		// return view('user.result');
-	}
-
-	public function adduser(Request $request)
+	public function updatepassword(Request $request)
 	{
 		$request->validate([
-			'nama' => 'required|max:30',
-			'password' => 'required|max:30',
-			'kelas' => 'required'
-
-
+			'username' => 'required',
+			'old_password' => 'required',
+			'new_password' => 'required'
 		],
 		[
-			'nama.required' => 'Nama harus di isi',
-			'nama.max' => 'Nama tidak boleh dari 30 huruf',
-			'password.required' => 'Sandi harus di isi',
-			'password.max' =>  'Sandi tidak boleh lebih dari 3 huruf',
-			'kelas.required' => 'Kelas harus di isi'
-
+			'username.required' => "Username harus di isi",
+			'old_password.required' => "Password lama harus di isi",
+			'new_password' => "Password baru harus di isi"
 		]);
 
-		$user = new User;
-		$user->name = $request->nama;
-		$user->password = bcrypt($request->password);
-		$user->role = 'user';
-		$user->kelas_id = $request->kelas;
-		$user->save();
-		return redirect('manageuser')->with('status','User berhasil di tambahkan');
+		$user = User::where('name' , $request->username)->get();
+		$check = User::where('name' ,$request->username)->count();
+
+		if($check == 0)
+		{
+			return back()->with('status','Gagal Username tidak ada');
+		}else{
+			foreach ($user as $value) {
+				$id = $value->id;
+				$default = $value->password;
+				$old_pw = $request->old_password;	
+
+				if(Hash::check($old_pw,$default))
+				{
+					User::where('id',$id)
+					->update([
+
+						'password' =>bcrypt($request->new_password)
+					]);
+
+					return redirect('/')->with('berhasil','Password Berhasil di ubah');
+
+				}else{
+					return redirect('/')->with('status','Gagal Password lama salah');
+				}
+			}
+
+		}
 	}
+
+
+
+	
 }

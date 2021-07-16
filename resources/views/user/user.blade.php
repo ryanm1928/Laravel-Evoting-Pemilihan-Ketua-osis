@@ -1,33 +1,46 @@
-@extends('template.layout')
+@extends('templateuser.layout')
 @section('title','User Page')
 
 @section('content')
-<h1>Halaman User</h1>
+
+@if($deadline >= 1)
 @if(session('status'))
-<h1 style="color: red">{{session('status')}}</h1>
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}</div>
+@else
+<marquee scrolldelay="100" class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Voting akan hilang jika batas waktu telah berahir / admin mengahapus data voting</marquee>
 @endif
-<a href="/logout">Logout</a>
-<table border="2px solid black">
-	<tr>
-		<th>No</th>
-		<th>sampul</th>
-		<th>title</th>
-		<th>description</th>
-		<th>Action</th>
-	</tr>
-	@foreach($poll as $data)
-	<tr>
-		<th>{{$loop->iteration}}</th>
-		<th>{{$data->sampul}}</th>
-		<th>{{$data->title}}</th>
-		<th>{{$data->description}}</th>
-		<th>{{$data->deadline}}</th>
-		@if($data->vote->count() > 0)
-		<th><a href="/result/{{$data->id}}">Lihat hasil</a></th>
-		@else
-		<th><a href="polling/{{$data->id}}">Lakukan Polling</a></th>
-		@endif
-	</tr>
-	@endforeach
-</table>
+
+@foreach($poll as $data)
+<div class="row bg-success user-content shadow mb-3">
+	<div class="col-sm-7 p-5">
+		<div class="h2 text-light" style="font-style: italic;">{{$data->title}}</div>
+		<div class="text h5 mb-3 text-light"><li>{{$data->description}}</li></div>
+		<div class="text-light"><li class="fa fa-calendar-times"></li> Batas waktu sampai:</div>
+		<div class="text-light h6">{{$data->deadline}}</div>
+	</div>
+	<div class="col-sm-5 p-5" id="icon">
+		<center>
+			<li class="fa fa-user text-dark display-3" style="opacity: 0.5;"></li>
+			<li class="fa fa-user text-dark display-3" style="opacity: 0.5;"></li>
+			<li class="fa fa-user text-dark display-3" style="opacity: 0.5;"></li>
+		</center>
+	</div>
+	<div class="col-sm-12 p-2" style="background-color: rgba(0,0,0,0.2);">
+		<center>
+			@if($data->vote->count() > 0)
+			<div class="h4 text-light"><i class="fa fa-check-circle" aria-hidden="true"></i> Kamu sudah melakukan voting</div>
+			@else
+			<a href="polling/{{$data->id}}" class="h5 text-light"><li class="fa fa-arrow-circle-right"></li> Lakukan Voting</a>
+			@endif
+		</center>
+	</div>
+</div>
+@endforeach
+@else
+<center>
+	<div class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Upss tidak ada voting untuk dilakukan silahkan hubungi admin</div>
+</center>
+@endif
+
+<div style="margin-bottom: 100px;"></div>	
 @endsection

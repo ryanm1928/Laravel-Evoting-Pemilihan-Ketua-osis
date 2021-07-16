@@ -55,13 +55,24 @@ class AuthController extends Controller
 			->with(["vote" => function($query) use ($user){
 				$query->where('user_id',$user->id);
 			}])->get();
-			return view('user.user',['poll' => $poll]);
+
+			$deadline = Poll::where("deadline",">=",date("Y-m-d"))->count();
+
+			return view('user.user',compact('poll','deadline'));
 		}
 
 	}
 
 	public function  actionlogin(Request $request)
 	{
+		$request->validate([
+			'name' => 'required',
+			'password' => 'required'
+		],
+		[
+			'name.required' => 'Username harus di isi',
+			'password.required' => 'password harus di isi'
+		]);
 
 		$data = (object) $request->only('name','password');
 		if(Auth::attempt(['name' => $data->name,'password' => $data->password]))
@@ -73,7 +84,7 @@ class AuthController extends Controller
 				return redirect('/user');
 			}
 		}else{
-			return redirect('/')->with('status','Login gagal Nama Password salah ');
+			return redirect('/')->with('status','Login gagal Username / Password salah ');
 		}
 	}
 

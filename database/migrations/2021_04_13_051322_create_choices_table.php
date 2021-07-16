@@ -19,7 +19,7 @@ class CreateChoicesTable extends Migration
             $table->string('sampul');
             $table->bigInteger('poll_id')->unsigned();
             $table->timestamps();
-            $table->foreign('poll_id')->references('id')->on('polls');
+            $table->foreign('poll_id')->references('id')->on('polls')->onDelete('cascade');
         });
     }
 

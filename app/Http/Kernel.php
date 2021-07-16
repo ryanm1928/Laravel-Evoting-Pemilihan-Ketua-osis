@@ -43,7 +43,13 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-    ];
+        'Authprotected' => [
+           \App\Http\Middleware\AuthCheck::class,
+       ],
+       'Userprotected' =>[
+        \App\Http\Middleware\AuthUser::class,
+    ]
+];
 
     /**
      * The application's route middleware.
