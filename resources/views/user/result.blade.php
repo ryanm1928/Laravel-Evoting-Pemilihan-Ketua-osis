@@ -7,6 +7,7 @@
 
 	<tr>
 		<th>No</th>
+		<th>Sampul</th>
 		<th>Pilihan</th>
 		<th>Jumlah  Pemilih</th>
 		<th>Hasil</th>
@@ -15,6 +16,7 @@
 	@foreach($data->choice as $item)
 	<tr>
 		<td>{{$item->id}}</td>
+		<td><img src="{{asset($item->sampul)}}" alt="" width="50px"></td>
 		<td>{{$item->name}}</td>
 		<td>{{$item->vote->count()}}</td>
 		<td>{{round($item->vote->count() / $jml * 100,2)}}%</td>

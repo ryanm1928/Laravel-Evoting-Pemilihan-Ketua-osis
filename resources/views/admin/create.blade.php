@@ -11,7 +11,7 @@
 </form>
 @if(isset($_GET['jumlah']))
 
-<form action="{{route('poll.store')}}" method="post">
+<form action="{{route('poll.store')}}" method="post" enctype="multipart/form-data">
 	@csrf
 	<input type="text" placeholder="Masukan Judul Polling" name="title">
 	<textarea name="description" id="" cols="30" rows="10" placeholder="description"></textarea>
@@ -19,7 +19,7 @@
 	
 	@for($i = 0; $i < $_GET['jumlah'];$i++ )
 	<input type="text" placeholder="Masukan pilihan" name="choice[]">
-	<input type="file" name="sampul[]">
+	<input type="file" name="gambar[]">
 	@endfor
 
 	<button type="submit">Buat polling</button>

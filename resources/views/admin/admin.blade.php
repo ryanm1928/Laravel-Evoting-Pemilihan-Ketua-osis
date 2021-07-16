@@ -16,12 +16,14 @@
 	<tr>
 		<th>No</th>
 		<th>Judul</th>
+		
 		<th>Description</th>
 		<th>Di Buat oleh</th>
 		<th>Deadline</th>
 		<th>Action</th>
 	</tr>
 	@foreach($poll as $data)
+
 	<tr>
 		<td>{{$data->id}}</td>
 		<td>{{$data->title}}</td>

@@ -17,7 +17,6 @@
 	</tr>
 	@foreach($poll as $data)
 	<tr>
-		<?php dd($data->sampul); ?>
 		<th>{{$loop->iteration}}</th>
 		<th>{{$data->sampul}}</th>
 		<th>{{$data->title}}</th>

@@ -17,7 +17,7 @@ class CreatePollsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('sampul')->nullable();
+            
             $table->bigInteger('created_by')->unsigned();
             $table->dateTime('deadline');
             $table->timestamps();

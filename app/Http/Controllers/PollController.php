@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Photo;
@@ -64,24 +64,23 @@ class PollController extends Controller
             [
                 "choice.required" => "Kolom ini harus di isi"
             ]);
-        foreach ($request->choice as $value) {
-           $choice = new Choice;
-           $choice->name = $value;
-           $choice->poll_id = $data->id;
-           $choice->save();
 
-       }
-       foreach ($request->sampul as $gambar) {
-        $photos = new Photo;
-        $photos->sampul = $gambar;
-        $photos->choice_id = $choice->id;
-        $photos->save();
+        $pilih = $request->choice;
+        $url = $request->file('gambar');
+        $request->sampul = $url;
+        foreach ($pilih as $i => $value) {
+            $choice = new Choice;
+            $choice->name = $value;
+            $choice->sampul = $url[$i]->store('gambar');
+            $choice->poll_id = $data->id;
+            $choice->save();
 
+        }
+
+
+
+        return redirect('/admin')->with('status' ,'Data berhasil di buat');
     }
-
-
-    return redirect('/admin')->with('status' ,'Data berhasil di buat');
-}
 
     /**
      * Display the specified resource.

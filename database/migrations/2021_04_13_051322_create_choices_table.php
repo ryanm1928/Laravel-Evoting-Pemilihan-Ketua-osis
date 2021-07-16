@@ -16,6 +16,7 @@ class CreateChoicesTable extends Migration
         Schema::create('choices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('sampul');
             $table->bigInteger('poll_id')->unsigned();
             $table->timestamps();
             $table->foreign('poll_id')->references('id')->on('polls');
