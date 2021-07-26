@@ -7,14 +7,54 @@ use App\Models\Poll;
 use App\Models\Choice;
 use App\Models\Vote;
 use App\Models\User;
+use App\Models\Mail;
+use App\Models\Reply;
 use Hash;
 class MainController extends Controller
 {
 
 	public function polling(Poll $id)
 	{
-		$hitung = Choice::where('id',">",0)->count();
-		return view('user.polling',['poll' => $id,'hitung' => $hitung]);
+		$value = User::where('id',auth()->user()->id)->get();
+		$data = Poll::where('id',$id->id)->get();
+
+		foreach ($value as $user) {
+			if($user->voteuser->count() >= 1){
+				return redirect('/user');
+			}	
+		}
+
+		foreach ($data as $value) {
+			if($value->deadline < date('Y-m-d'))
+			{
+				abort('404');
+			}else{
+				$hitung = Choice::where('poll_id',$id->id)->count();
+				return view('user.polling',['poll' => $id,'hitung' => $hitung]);
+			}
+		}
+
+		
+	}
+
+	public function voteuser($id)
+	{
+		$value = User::where('id',auth()->user()->id)->get();
+		$vote = Choice::where('id',$id)->get();
+		foreach ($vote as $data) {
+			if($data->bataswaktu->deadline < date('Y-m-d')){
+				abort('404');
+			}
+		}
+		foreach ($value as $user) {
+			if($user->voteuser->count() >= 1){
+				abort('404');
+			}	
+		}
+
+		return view('user.voteuser',compact('vote'));
+
+
 	}
 
 	public function actionpolling(Request $request, $id)
@@ -32,6 +72,8 @@ class MainController extends Controller
 		);
 
 		$data = new Vote;
+
+
 
 		$data->choice_id = $request->userchoice;
 		$data->user_id = auth()->user()->id;
@@ -85,7 +127,37 @@ class MainController extends Controller
 		}
 	}
 
+	public function pesan()
+	{
+		$id = auth()->user()->id;
+		$reply = Reply::where('user_id',$id)->get();
+		return view('user.mail',compact('reply'));
+	}
+	public function send(Request $request)
+	{
+		$mail = new Mail;
+		$request->validate([
+
+			'pesan' => 'required'
+		],
+		[
+			'pesan.required' => 'Kolom harus di isi'
+		]);
+
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date("H:i:s");
+
+		$mail->pesan = $request->pesan;
+		$mail->tanggal = date('Y-m-d');
+		$mail->waktu = $time;
+		$mail->user_id = auth()->user()->id;
+
+		$mail->save();
+
+		return redirect('user')->with('pesan','Pesan berhasil di kirim');
+	}
 
 
-	
+
+
 }

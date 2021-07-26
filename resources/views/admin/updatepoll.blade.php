@@ -3,6 +3,7 @@
 @section('home','active-nav-item')
 @section('content')
 <div class="h3">Update Data Polling</div>
+<hr>
 <form action="{{route('poll.update',['poll' => $id->id])}}" method="post">
 	@csrf
 	@method('put')
@@ -22,11 +23,12 @@
 			<textarea name="description" cols="20" rows="10" class="form-control shadow" required="">{{$id->description}}</textarea>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-success w-100 mt-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit data Polling</button>
+	<button type="submit" class="btn btn-success w-100 mt-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit data Voting</button>
 </form>
 
 
 <div class="h3 mt-4">Update Choice</div>
+<hr>
 <div class="table-responsive">
 	<table class="table">
 		<caption>Made by MOHAMAD RIYAN</caption>
@@ -44,7 +46,9 @@
 				<td>{{$loop->iteration}}</td>
 				<td>{{$choice->name}}</td>
 				<td><img src="{{asset($choice->sampul)}}" alt="" style="width: 70px;"></td>
-				<td><a href="/editchoice/{{$choice->id}}" class="btn btn-warning text-light"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></td>
+				<td>
+					<a href="/editchoice/{{$choice->id}}" class="btn btn-warning text-light"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+				</td>
 			</tr>
 			@endforeach	
 		</tbody>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Photo;
 use App\Models\Choice;
 use App\Models\Mail;
+use App\Models\Reply;
 
 
 class PollController extends Controller
@@ -57,11 +59,11 @@ class PollController extends Controller
       $data = new Poll;
 
       $data->title = $request->title;
+      $data->slug = Str::slug($request->title,'-');
       $data->description = $request->description;
       $data->deadline = $request->deadline;
       $data->created_by = auth()->user()->id;
       $data->save();
-        // $data->sampul = $request->sampul;
       $request->validate(
         [
           "choice" => "required"
@@ -72,11 +74,16 @@ class PollController extends Controller
 
       $pilih = $request->choice;
       $url = $request->file('gambar');
+      $visi = $request->visi;
+      $misi = $request->misi;
+
       $request->sampul = $url;
       foreach ($pilih as $i => $value) {
         $choice = new Choice;
         $choice->name = $value;
         $choice->sampul = $url[$i]->store('gambar');
+        $choice->visi = $visi[$i];
+        $choice->misi = $misi[$i];
         $choice->poll_id = $data->id;
         $choice->save();
 
@@ -157,10 +164,14 @@ class PollController extends Controller
     {   
       $request->validate(
         [
-          "choice" => "required"
+          "choice" => "required",
+          'visi' => "required",
+          'misi' => "required"
         ],
         [
-          "choice.required" => "Kolom ini harus di isi"
+          "choice.required" => "Kolom ini harus di isi",
+          "visi.required" => "Kolom visi harus di isi",
+          "misi.required" => "Kolom misi harus di isi"
         ]); 
 
 
@@ -168,7 +179,9 @@ class PollController extends Controller
       {
         Choice::where('id',$id)
         ->update([
-          'name' => $request->choice
+          'name' => $request->choice,
+          'visi' => $request->visi,
+          'misi' => $request->misi
         ]);
         return redirect('/admin')->with('status','Choice berhasil di update');
 
@@ -178,6 +191,8 @@ class PollController extends Controller
         Choice::where('id',$id)
         ->update([
           'name' => $request->choice,
+          'visi' => $request->visi,
+          'misi' => $request->misi,
           'sampul' => $sampul->store('gambar')
         ]);
 
@@ -223,9 +238,57 @@ class PollController extends Controller
 
   public function mails()
   {
-    $mail = Mail::all();
-    return view('admin.mail',compact('mail'));
+    $cek = Reply::where('id_pesan',">" ,0)->get();
 
+    $mail = Mail::all();
+
+    return view('admin.mail',compact('mail','cek'));
+
+  }
+
+  public function reply($id)
+  {
+    $mail = Mail::find($id);
+    return view('admin.balas',compact('mail'));
+
+  }
+
+  public function sendreply(Request $request)
+  {
+
+    $request->validate([
+      'balaspesan' => 'required',
+      'user' => 'required',
+      'idpesan' => 'required'
+    ]);
+
+    date_default_timezone_set('Asia/Jakarta');
+    $time = date("H:i:s");
+    $data = new Reply;
+
+    $data->balasan = $request->balaspesan;
+    $data->user_id = $request->user;
+    $data->tanggal = date('Y-m-d');
+    $data->waktu = $time;
+    $data->id_pesan = $request->idpesan;
+
+    $data->save();
+    return redirect('/mails')->with('status','Pesan berhasil di balas');
+
+
+  }
+
+  public function contact()
+  {
+    return view('admin.contact');
+  }  
+
+
+  public function polldelete($id)
+  {
+    $poll = Poll::where('id',$id)->get();
+
+    return view('admin.hapus.polldelete',compact('poll'));
   }
 
 }

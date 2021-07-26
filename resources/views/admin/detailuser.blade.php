@@ -5,7 +5,7 @@
 <div class="h3">Details:</div>
 
 <div class="table-responsive">
-	<table class="table table-bordered table-hover shadow">
+	<table class="table table-bordered table-hover">
 		<caption>Made by MOHAMAD RIYAN</caption>
 		<thead class="thead-dark">
 			<tr>

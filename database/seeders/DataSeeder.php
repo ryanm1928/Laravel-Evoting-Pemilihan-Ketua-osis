@@ -62,90 +62,22 @@ class DataSeeder extends Seeder
         ]);
 
 
-
     	DB::table('users')->insert([
 
-    		
-
-    		[
-    			"name" => "user",
-    			"password" => bcrypt('user'),
-    			"role" => "user",
-    			"kelas_id" => 2
-
-    		],
-            [
-                "name" => "user2",
-                "password" => bcrypt('user2'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user3",
-                "password" => bcrypt('user3'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user4",
-                "password" => bcrypt('user4'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
             [
                 "name" => "admin",
-                "password" => bcrypt('admin'),
+                "password" => bcrypt('evotingqwerty123456'),
                 "role" => "admin",
                 "kelas_id" => 1
 
             ],
-            
             [
-                "name" => "user5",
-                "password" => bcrypt('user5'),
+                "name" => "user",
+                "password" => bcrypt('user123'),
                 "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user6",
-                "password" => bcrypt('user6'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user7",
-                "password" => bcrypt('user7'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user8",
-                "password" => bcrypt('user8'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user9",
-                "password" => bcrypt('user9'),
-                "role" => "user",
-                "kelas_id" => 2
-
-            ],
-            [
-                "name" => "user10",
-                "password" => bcrypt('user10'),
-                "role" => "user",
-                "kelas_id" => 2
+                "kelas_id" => 1
 
             ]
-            
 
         ]);
 

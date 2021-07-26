@@ -17,6 +17,8 @@ class CreateChoicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('sampul');
+            $table->text('visi');
+            $table->text('misi');
             $table->bigInteger('poll_id')->unsigned();
             $table->timestamps();
             $table->foreign('poll_id')->references('id')->on('polls')->onDelete('cascade');

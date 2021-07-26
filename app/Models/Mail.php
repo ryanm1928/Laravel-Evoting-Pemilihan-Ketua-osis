@@ -7,5 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mail extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
+	public function  user()
+	{
+		return $this->belongsTo(User::class,'user_id');
+
+	}
+
+	public function balas()
+	{
+		return $this->hasMany(Reply::class,'id_pesan');
+	}
+
+
+
 }

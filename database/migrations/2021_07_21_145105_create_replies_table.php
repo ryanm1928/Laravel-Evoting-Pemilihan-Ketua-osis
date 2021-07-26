@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMailsTable extends Migration
+class CreateRepliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateMailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mails', function (Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
             $table->id();
-            $table->text('pesan');
+            $table->string('balasan');
+            $table->BigInteger('user_id')->unsigned();
             $table->date('tanggal');
             $table->time('waktu');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('id_pesan')->unsigned();
             $table->timestamps();
 
 
+            $table->foreign('id_pesan')->references('id')->on('mails')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -33,6 +35,6 @@ class CreateMailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mails');
+        Schema::dropIfExists('replies');
     }
 }

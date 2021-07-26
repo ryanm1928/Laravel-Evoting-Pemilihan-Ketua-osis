@@ -1,19 +1,19 @@
 @extends('template.layout')
-@section('title','Create Polling')
+@section('title','Buat Voting')
 @section('buat','active-nav-item')
 @section('content')
 
-<div class="h3">Buat Polling</div>
-
+<div class="h3">Buat Voting</div>
+<hr>
 @if($poll >= 1 )
 
-<div class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Upss Kamu masih memiliki data voting yang belum selesai,hapus/selesaikan voting tersebut </div>
+<div class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Upss Kamu masih memiliki data voting yang belum selesai hapus/selesaikan voting tersebut </div>
 @else
 <form action="" method="get" class="">
 	<div class="row">
 		<div class="col-sm-10">
 			<label for="Jumlah">Masukan Jumlah Pilihan:</label>
-			<input type="number" value="{{$_GET['jumlah'] ?? '' }}" min="2" max="9" name="jumlah" class="form-control" id="jumlah" required="" step="">
+			<input type="number" value="{{$_GET['jumlah'] ?? '' }}" min="2" max="6" name="jumlah" class="form-control" id="jumlah" required="" step="">
 		</div>
 		<div class="col-sm-2" style="margin-top: 31px">
 			<button type="submit" class="btn btn-success shadow" style="width: 130px"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
@@ -24,7 +24,7 @@
 <hr>
 
 @if(isset($_GET['jumlah']))
-<form action="{{route('poll.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('poll.store')}}" method="post" enctype="multipart/form-data" id="form-create">
 	@csrf
 	<div class="row">
 		<div class="col-sm-6">
@@ -68,6 +68,10 @@
 				<div class="card-body text-primary">
 					<label for="" class="text-dark">Masukan Nama Calon:</label>
 					<input class="form-control" type="text" placeholder="Masukan Nama..." name="choice[]" required="">
+					<label for="" class="text-dark mt-2">Masukan visi:</label>
+					<input type="text" name="visi[]" placeholder="Masukan visi..." class="form-control">
+					<label for="text"  class="text-dark mt-2">Masukan misi:</label>
+					<input type="text" name="misi[]" placeholder="Masukan misi..." class="form-control">
 					<div class="row mt-4">
 						<div class="col-sm-8">
 							<div class="custom-file">
@@ -91,7 +95,7 @@
 	</div>
 	<div class="row mt-4">
 		<div class="col-sm-12">
-			<button type="submit" class="btn btn-success w-100"><i class="fa fa-save" aria-hidden="true"></i> Buat polling</button>
+			<button type="submit" id="btn-create" class="btn btn-success w-100"><i class="fa fa-save" aria-hidden="true"></i> Buat polling</button>
 		</div>
 	</div>
 </form>
@@ -125,7 +129,13 @@
 	for (var i = 0; i < jumlah; i++) {
 		previewBeforeUpload("file-"+i);
 	}
+
+	$('#form-create').on('submit',function(){
+		$('#btn-create').attr('disabled', 'true');
+
+	});
 </script>
+
 
 @endif
 @endsection

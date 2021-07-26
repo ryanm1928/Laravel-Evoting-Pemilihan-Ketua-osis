@@ -1,11 +1,11 @@
 @extends('template.layout')
-@section('title','Manage Users')
+@section('title','Tambah Pengguna')
 @section('tambah','active-nav-item')
 @section('content')
 
-
 <div class="h3">Tambah Pengguna</div>
-<form action="/datauser" method="post">
+<hr>
+<form action="/datauser" method="post" id="form-user">
 	@csrf
 	<div class="row">
 		<div class="col-sm-12">
@@ -25,7 +25,13 @@
 			</select>
 		</div>
 	</div>
-	<button class="btn btn-success w-25 mt-3"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>
+	<button id="btn-user" class="btn btn-success w-25 mt-3"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>
 </form>
 
+<script type="text/javascript">
+	$('#form-user').on('submit',function(){
+		$('#btn-user').attr('disabled', 'true');
+
+	});
+</script>
 @endsection

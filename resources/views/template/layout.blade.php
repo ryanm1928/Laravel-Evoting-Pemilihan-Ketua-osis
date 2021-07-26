@@ -1,4 +1,24 @@
-@extends('template.header')
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>@yield('title')</title>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/header/style.css">
+
+    <!-- Our Custom CSS -->
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="/js/jquery-slim.js"></script>
+</head>
 
 <body>
 	<div class="wrapper">
@@ -9,11 +29,11 @@
 			</div>
             <ul class="list-unstyled components">
                 <li  class="@yield('home')" >
-                 <a class=" " href="/admin" ><i class="fa fa-home" aria-hidden="true"></i></i> Home</a>
-             </li>
+                   <a class=" " href="/admin" ><i class="fa fa-home" aria-hidden="true"></i></i> Home</a>
+               </li>
 
-             <li  class="@yield('buat')" >
-                <a class="" href="{{ route('poll.create')}}"> <i class="fa fa-plus" aria-hidden="true"></i> Buat Polling</a>
+               <li  class="@yield('buat')" >
+                <a class="" href="{{ route('poll.create')}}"> <i class="fa fa-plus" aria-hidden="true"></i> Buat Voting</a>
             </li>
             <li  class="@yield('lihat')" >
                 <a class="" href="/resultvote">  <i class="fa fa-eye" aria-hidden="true"></i> Lihat Voting </a>
@@ -26,6 +46,9 @@
             </li>
             <li  class="@yield('pesan')" >
                 <a class="" href="/mails">   <i class="fa fa-envelope" aria-hidden="true"></i> Pesan</a>
+            </li>
+            <li  class="@yield('contact')" >
+                <a class="" href="/contact"><i class="fa fa-user-secret" aria-hidden="true"></i> Contact</a>
             </li>
             <li>
                 <a class="" href="/logout">   <i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -50,4 +73,14 @@
 
     </div>
 </div>
-@extends('template.footer')
+</body>
+<script src="/js/jquery.js"></script>
+
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="/footer/script.js"></script>
+</body>
+
+</html>

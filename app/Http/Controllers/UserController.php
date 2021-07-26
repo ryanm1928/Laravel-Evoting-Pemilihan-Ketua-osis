@@ -16,19 +16,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->cari) {
-          $data = User::where('name' , 'like' ,'%'.$request->cari.'%')->get();
-          $vote = Vote::all()->count();
-          $datapemilih = User::where('id','>',0)->count();
+     $vote = Vote::all()->count();
+     $datapemilih = User::where('id','>',0)->count();
+     return view('admin.datauser',compact('datapemilih','vote'));
+ }
 
-      }else{
-        $datapemilih = User::where('id','>',0)->count();
-        $data = User::all();
-        $vote = Vote::all()->count();
 
-    }  
-    return view('admin.datauser',compact('data','vote','request','datapemilih'));
-}
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -148,4 +143,21 @@ class UserController extends Controller
         return redirect('datauser')->with('delete','Data telah berhasil di hapus');
 
     }
+
+
+    public function cari(Request $request)
+    {
+
+      $data = User::where('name' , 'like' ,'%'.$request->cari.'%')->get();
+      return view('admin.cari.caridata',compact('data','request'));
+  }
+
+  public function userdata()
+  {
+
+    $data = User::all();
+    return view('admin.userdata.userdata',compact('data'));
+}
+
+
 }

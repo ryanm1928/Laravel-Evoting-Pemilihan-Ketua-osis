@@ -42,7 +42,21 @@ Route::group(['middleware'=>['Authprotected']],function(){
 	Route::get('/datauser/{user}',[UserController::class,'show']);
 
 
-	Route::get('mails',[PollController::class,'mails']);
+	Route::get('/contact',[PollController::class,'contact']);
+
+	Route::get('/mails',[PollController::class,'mails']);
+	Route::get('/reply/{id}',[PollController::class,'reply']);
+	Route::post('/sendreply',[PollController::class,'sendreply']);
+
+	//Route serach
+	Route::get('/userdata',[UserController::class,'userdata']);
+	Route::get('/cari',[UserController::class,'cari']);
+
+	//Route Hapus
+	Route::get('/polldelete/{id}',[PollController::class,'polldelete']);
+
+
+
 	
 
 });
@@ -50,8 +64,11 @@ Route::group(['middleware'=>['Authprotected']],function(){
 //user
 Route::group(['middleware' => ['Userprotected']],function(){
 	Route::get('/user',[AuthController::class,'user']);
-	Route::get('/polling/{id}',[MainController::class,'polling']);
-	Route::post('/polling/{id}',[MainController::class,'actionpolling']);
+	Route::get('/voting/{id}/{poll::slug}',[MainController::class,'polling']);
+	Route::get('/vote/{id}',[MainController::class,'voteuser']);
+	Route::post('/voting/{id}/{poll::slug}',[MainController::class,'actionpolling']);
+	Route::get('/user-mails',[MainController::class,'pesan']);
+	Route::post('/send-mails',[MainController::class,'send']);
 });
 
 Route::post('/gantisandi',[MainController::class,'updatepassword']);

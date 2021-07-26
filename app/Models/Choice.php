@@ -9,10 +9,14 @@ class Choice extends Model
 {
 	use HasFactory;
 	
+	
 	public function vote()
 	{
 		return $this->hasMany(Vote::class,'choice_id');
 	}
 	
-
+	public function bataswaktu()
+	{
+		return $this->belongsTo(Poll::class,'poll_id');
+	}
 }

@@ -17,7 +17,7 @@
 	<div class="col-sm-6 p-5">
 		<div class="" id="form-login">
 			<div class="h1 mb-4" style="font-style: bold;">E-Voting Login</div>
-			<form action="/login" method="post">
+			<form action="/login" method="post" id="login-form">
 				@csrf
 				<div class=" mb-5">
 					<div class="input-group input-group-sm">
@@ -46,12 +46,12 @@
 						@enderror
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary mt-5 p-2" style="width: 210px"> </li> Login</button>
+				<button id="btn-login" type="submit" class="btn btn-primary mt-5 p-2 w-100"><li class="fa fa-key"></li> Login</button>
 				<br>
 			</div>
 		</form>
 		<div class="hilang" id="form-ganti">
-			<form action="/gantisandi" method="post">
+			<form action="/gantisandi" method="post" id="gantisandi-form">
 				@csrf
 				<div class="h1 mb-3" style="font-style: bold;">Ubah Password</div>
 				<div class=" mb-4">
@@ -94,7 +94,7 @@
 						@enderror
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary mt-5 p-2" style="width: 105px"> </li> Ganti</button>
+				<button id="btn-ganti" type="submit" class="btn btn-primary mt-5 p-2" style="width: 150px"><li class="fa fa-lock"></li> Ubah Password</button>
 				<div class="btn btn-danger mt-5 p-2" style="width: 75px;" id="cancel">Cancel</div>
 			</div>
 		</form>
@@ -103,14 +103,13 @@
 </div>
 <div class="row" id="foot-login">
 	<div class="col-sm-8 mt-5">
-		<div class="text-primary d-inline"  style="text-decoration: underline;">Buat akun?</div>
 		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline;"> Ubah Password?</div>
 	</div>
 	<div class="col-sm-4 mt-4" id="login-contact">
-		<img src="{{asset('gambar/socialmediaicon_01.png')}}" alt="" style="width: 38px">
-		<img src="{{asset('gambar/socialmediaicon_06.png')}}" alt="" style="width: 38px">
-		<img src="{{asset('gambar/socialmediaicon_09.png')}}" alt="" style="width: 38px">
-		<img src="{{asset('gambar/socialmediaicon_20.png')}}" alt="" style="width: 38px">
+		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><img src="{{asset('gambar/socialmediaicon_01.png')}}" alt="" style="width: 38px"></a>
+		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><img src="{{asset('gambar/socialmediaicon_06.png')}}" alt="" style="width: 38px"></a>
+		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><img src="{{asset('gambar/socialmediaicon_09.png')}}" alt="" style="width: 38px"></a>
+		<a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><img src="{{asset('gambar/socialmediaicon_20.png')}}" alt="" style="width: 38px"></a>
 		<div class="text text-muted" style="font-size: 13px">made by MOHAMAD RIYAN</div>
 	</div>
 </div>
@@ -133,6 +132,21 @@
 
 			
 		});
+
+
+		$('#login-form').on('submit',function(){
+			$('#btn-login').attr('disabled', 'true');
+
+		});
+
+		$('#gantisandi-form').on('submit',function(){
+			$('#btn-ganti').attr('disabled', 'true');
+			$('#cancel').css('display', 'none');
+
+		});
+
+
+
 	});
 </script>
 @endsection

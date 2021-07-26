@@ -3,8 +3,8 @@
 @section('datauser','active-nav-item')
 @section('content')
 <div class="h3">Edit Pengguna:</div>
-
-<form action="/datauser/edit/{{$user->id}}" method="post">
+<hr>
+<form action="/datauser/edit/{{$user->id}}" method="post" id="form-edit-user">
 	@csrf
 	@method('put')
 	<div class="row">
@@ -25,6 +25,15 @@
 			</select>
 		</div> -->
 	</div>
-	<button class="btn btn-success w-25 mt-3" type="submit"><i class="fa fa-file" aria-hidden="true"></i> Edit Data</button>
+	<button id="btn-edit-user" class="btn btn-success w-25 mt-3" type="submit"><i class="fa fa-file" aria-hidden="true"></i> Edit Data</button>
 </form>
+
+
+<script type="text/javascript">
+	$('#form-edit-user').on('submit',function(){
+		$('#btn-edit-user').attr('disabled', 'true');
+
+	});
+</script>
+
 @endsection

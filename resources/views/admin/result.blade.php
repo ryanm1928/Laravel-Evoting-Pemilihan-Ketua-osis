@@ -1,11 +1,8 @@
-@extends('template.layout')
-@section('title','Result')
-@section('lihat','active-nav-item')
-@section('content')
-<div class="h3">Hasil Voting</div>
+
+
 
 <div class="table-responsive">
-	<table class="table table-bordered table-hover shadow">
+	<table class="table table-bordered table-hover">
 		<caption>Made by MOHAMAD RIYAN</caption>
 		<thead class="thead-dark">
 			<tr>
@@ -24,13 +21,12 @@
 				<td class="h5">{{$item->name}}</td>
 				<td class="h5"><li class="fa fa-users"></li> {{$item->vote->count()}}</td>
 				@if($data->vote->count() == 0)
-				<td class="h5"> 0%</td>
+				<td class="h5" width="130px"> 0%</td>
 				@else
-				<td class="h5">{{round($item->vote->count() / $jml * 100,2)}}%</td>
+				<td class="h5" width="130px">{{round($item->vote->count() / $jml * 100,2)}}%</td>
 				@endif
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
 </div>
-@endsection
