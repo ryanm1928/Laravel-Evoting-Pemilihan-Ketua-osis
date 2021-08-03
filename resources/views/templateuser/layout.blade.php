@@ -80,10 +80,10 @@
 </body>
 <footer class="fixed-bottom" style="background-color: #CECECE;">
 	<div class="row p-2">
-		<div class="col-sm-10">
+		<div class="col-xl-10">
 			<div>©2021-{{date('Y')}}</div>
 		</div>
-		<div class="col-sm-2">
+		<div class="col-xl-2">
 			<a href="" style="font-size: 15px;">made by MOHAMAD RIYAN</a>
 		</div>
 	</div>

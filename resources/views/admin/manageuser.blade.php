@@ -24,8 +24,15 @@
 				@endforeach
 			</select>
 		</div>
+		<div class="col-sm-12 mt-3">
+			<label><i class="fa fa-street-view" aria-hidden="true"></i> Role:</label>
+			<select name="role" id="" class="form-control">
+				<option value="user">User</option>
+				<option value="admin">Admin</option>
+			</select>
+		</div>
 	</div>
-	<button id="btn-user" class="btn btn-success w-25 mt-3"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>
+	<button id="btn-user" class="btn btn-success w-100 mt-3"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>
 </form>
 
 <script type="text/javascript">

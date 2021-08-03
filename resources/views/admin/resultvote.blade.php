@@ -5,7 +5,9 @@
 <div class="h3">Hasil Voting</div>
 <hr>
 @if(session('status'))
-<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}</div>
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 
 
@@ -29,7 +31,7 @@
 				<td align="center">{{$data->title}}</td>
 				<td align="center">{{$data->description}}</td>
 				<td align="center">{{$data->deadline}}</td>
-				<td align="center"><button class="btn btn-primary text-light" onclick="hasil('{{$data->id}}')"><i class="fa fa-eye" aria-hidden="true"></i>  Lihat hasil</button class="btn btn-warning text-light"></th>
+				<td align="center"><button class="btn btn-outline-primary" onclick="hasil('{{$data->id}}')" data-placement="right" title="Lihat hasil"><i class="fa fa-eye" aria-hidden="true"></i> </button class="btn btn-warning text-light"></th>
 				</tr>
 				@endforeach
 			</tbody>

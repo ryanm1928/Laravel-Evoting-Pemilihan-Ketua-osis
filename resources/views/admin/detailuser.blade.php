@@ -1,10 +1,6 @@
-@extends('template.layout')
-@section('title','Details User')
-@section('datauser','active-nav-item')
-@section('content')
-<div class="h3">Details:</div>
 
-<div class="table-responsive">
+
+<div class="container table-responsive mt-2">
 	<table class="table table-bordered table-hover">
 		<caption>Made by MOHAMAD RIYAN</caption>
 		<thead class="thead-dark">
@@ -33,4 +29,3 @@
 		</tbody>
 	</table>
 </div>
-@endsection

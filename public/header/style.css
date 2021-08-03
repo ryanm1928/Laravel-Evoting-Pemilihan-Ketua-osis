@@ -1,6 +1,12 @@
     /*
     DEMO STYLE
     */
+    .hilang{
+        display: none;
+    }
+    .muncul{
+        display: inline;
+    }
     .table > tbody > tr > *
     {
         vertical-align: middle;

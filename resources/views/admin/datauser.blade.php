@@ -4,65 +4,61 @@
 @section('content')
 
 @if(session('delete'))
-<div class="alert alert-danger"><li class="fa fa-trash"></li> {{session('delete')}}</div>
+<div class="alert alert-danger"><li class="fa fa-trash"></li> {{session('delete')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 @if(session('status'))
-<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}</div>
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 <div class="row">
 	<div class="col-sm-11 mb-2">
 		<input type="text" class="form-control" name="cari" id="cari" placeholder="🔎 Cari pengguna...">
 	</div>
 	<div class="col-sm-1">
-		<a href="/datauser"><li class="fa fa-2x fa-retweet text-muted" aria-hidden="true"></li></a>
+		<a href="/datauser"><li class="fa fa-2x fa-retweet text-muted" aria-hidden="true" title="Refresh"></li></a>
 	</div>
 </div>
 <hr>
 
-<div class="row">
-	<div class="col-sm-4 mt-2 ">
-		<div class="bg-primary text-light p-3 shadow">
-			<div class="row">
-				<div class="col-sm-7">
-					<div class="h3"> {{$datapemilih}}</div>
-					Pengguna
-				</div>
-				<div class="col-sm-3">
-					<i class="fa fa-5x fa-users" aria-hidden="true"></i>
-				</div>
+<div id="datavoteuser"></div>
+
+<div class="table-responsive mt-2" id="table"></div>
+
+<div class="modal fade" id="modal-id-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-warning">
+				<h4 class="modal-title ">Edit Pengguna:</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
-		</div>
-	</div>
-	<div class="col-sm-4 mt-2 ">
-		<div class="bg-success text-light p-3 shadow">
-			<div class="row">
-				<div class="col-sm-7">
-					<div class="h3"> {{$vote}}</div>
-					Sudah Voting
-				</div>
-				<div class="col-sm-3">
-					<i class="fa fa-5x fa-users" aria-hidden="true"></i>
-				</div>
+			<div class="modal-body">
+				<div class="h4 mt-2"><li class="fa fa-search"></li> Memuat data..</div>
 			</div>
-		</div>
-	</div>
-	<div class="col-sm-4 mt-2 ">
-		<div class="bg-danger text-light p-3" shadow>
-			<div class="row">
-				<div class="col-sm-7">
-					<div class="h3"> {{$datapemilih - $vote}}</div>
-					Belum Voting
-				</div>
-				<div class="col-sm-3">
-					<i class="fa fa-5x fa-users" aria-hidden="true"></i>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
 
-<div class="table-responsive mt-2" id="table">
-	
+
+
+<div class="modal fade" id="modal-id-2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-success">
+				<h4 class="modal-title text-light">Details</h4>
+				<button type="button" class="close text-light" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body-2">
+				<div class="h4 mt-2"><li class="fa fa-search"></li> Memuat data..</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- load -->
@@ -72,6 +68,7 @@
 	$(window).on('load',function(){
 		$('#table').html('<div class="h4 mt-2"><li class="fa fa-search"></li> Memuat data..</div>')
 		userdata()
+		datavoteuser()
 	})
 
 	$('#cari').keyup(function(event) {
@@ -86,6 +83,13 @@
 		
 
 	});
+
+	function datavoteuser()
+	{
+		$.get("{{url('datavoteuser')}}", function(data) {
+			$("#datavoteuser").html(data);
+		});
+	}
 
 	function search()
 	{
@@ -106,9 +110,25 @@
 		});
 	}
 
+
+	function edituser(id) {
+
+		$.get("{{url('datauser/edit')}}/" + id,{}, function(data,status) {	
+			$('.modal-body').html(data)
+		});
+	}
+
+	function getdetails (id) {
+
+		$.get("{{url('datauser')}}/" + id, function(data) {
+			$('.modal-body-2').html(data)
+		}); 
+	}
+
+	
+
 	
 </script>
-
 
 
 @endsection

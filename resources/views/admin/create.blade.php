@@ -9,14 +9,14 @@
 
 <div class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Upss Kamu masih memiliki data voting yang belum selesai hapus/selesaikan voting tersebut </div>
 @else
-<form action="" method="get" class="">
+<form action="" method="get" class="" id="form-jumlah">
 	<div class="row">
 		<div class="col-sm-10">
 			<label for="Jumlah">Masukan Jumlah Pilihan:</label>
 			<input type="number" value="{{$_GET['jumlah'] ?? '' }}" min="2" max="6" name="jumlah" class="form-control" id="jumlah" required="" step="">
 		</div>
 		<div class="col-sm-2" style="margin-top: 31px">
-			<button type="submit" class="btn btn-success shadow" style="width: 130px"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
+			<button id="btn-jumlah" type="submit" class="btn btn-success shadow" style="width: 130px"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
 		</div>
 	</div>
 </form>
@@ -132,6 +132,12 @@
 
 	$('#form-create').on('submit',function(){
 		$('#btn-create').attr('disabled', 'true');
+
+	});
+
+
+	$('#form-jumlah').on('submit',function(){
+		$('#btn-jumlah').attr('disabled', 'true');
 
 	});
 </script>

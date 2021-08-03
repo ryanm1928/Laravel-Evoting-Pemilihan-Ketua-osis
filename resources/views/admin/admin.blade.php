@@ -5,10 +5,14 @@
 @section('content')
 
 @if(session('status'))
-<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}</div>
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 @if(session('delete'))
-<div class="alert alert-danger"><li class="fa fa-trash"></li> {{session('delete')}}</div>
+<div class="alert alert-danger"><li class="fa fa-trash"></li> {{session('delete')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 <div class="h3">Data Voting</div>
 <div class="table-responsive">
@@ -34,9 +38,9 @@
 				<td align="center">{{$data->deadline}}</td>
 				<td>{{$data->creator->name}}</td>
 				<td>
-					<a onClick="hapus({{$data->id}})" class="btn btn-danger" data-toggle="modal" href='#modal-id' style="width: 130px;"><li class="fa fa-trash"></li> Hapus</a>
+					<button onClick="hapus({{$data->id}})" class="btn btn-outline-danger" title="Hapus" data-toggle="modal" href='#modal-id'><li class="fa fa-trash"></li> </button>
 					<br>
-					<a style="width: 130px;" href="{{route('poll.edit',['poll' => $data->id])}}" class="btn btn-warning text-light mt-2 "><i class="fa fa-edit" aria-hidden="true"></i> Edit data</a>
+					<a href="{{route('poll.edit',['poll' => $data->id])}}" title="Edit data" class="btn btn-outline-warning mt-2 "><i class="fa fa-edit" aria-hidden="true"></i> </a>
 				</td>
 			</tr>
 			@endforeach

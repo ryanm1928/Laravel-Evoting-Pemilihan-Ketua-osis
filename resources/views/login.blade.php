@@ -11,10 +11,10 @@
 		<div class="alert alert-success w-100" style="position: absolute;"><li class="fa fa-check-circle"></li> {{session('berhasil')}}</div>
 		@endif
 	</div>
-	<div class="col-sm-6 mt-5">
+	<div class="col-lg-6 mt-5">
 		<img src="{{asset('gambar/aset1.png')}}" alt="" class="img-fluid">
 	</div>
-	<div class="col-sm-6 p-5">
+	<div class="col-lg-6 p-5">
 		<div class="" id="form-login">
 			<div class="h1 mb-4" style="font-style: bold;">E-Voting Login</div>
 			<form action="/login" method="post" id="login-form">
@@ -102,10 +102,11 @@
 	</div>
 </div>
 <div class="row" id="foot-login">
-	<div class="col-sm-8 mt-5">
-		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline;"> Ubah Password?</div>
+	<div class="col-md-8 mt-5">
+		<div class="text-primary d-inline" style="text-decoration:underline; cursor:pointer;">Buat akun?</div>
+		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline; cursor:pointer;"> Ubah Password?</div>
 	</div>
-	<div class="col-sm-4 mt-4" id="login-contact">
+	<div class="col-md-4 mt-4" id="login-contact">
 		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><img src="{{asset('gambar/socialmediaicon_01.png')}}" alt="" style="width: 38px"></a>
 		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><img src="{{asset('gambar/socialmediaicon_06.png')}}" alt="" style="width: 38px"></a>
 		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><img src="{{asset('gambar/socialmediaicon_09.png')}}" alt="" style="width: 38px"></a>

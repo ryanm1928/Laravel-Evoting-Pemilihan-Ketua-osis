@@ -1,5 +1,5 @@
 <table class="table table-bordered table-hover">
-	<thead class="thead-dark">
+	<thead class="bg-danger text-light">
 		<tr>
 			<th scope="col">No</th>
 			<th scope="col">Nama</th>
@@ -13,16 +13,12 @@
 
 		@foreach($data as $user)
 		<tr>
+			@if($user->voteuser->count() == 0)
 			<td scope="row">{{$loop->iteration}}</td>
 			<td style="width: 420px">{{$user->name}}</td>
 			<td style="width: 150px;">{{$user->userkelas->kelas}}</td>
-
 			<!-- status -->
-			@if($user->voteuser->count() >= 1)
-			<td class=" h6 text-success table-success" >Sudah Voting <i class="fa fa-check-circle" aria-hidden="true"></i> </td>
-			@else
-			<td class=" h6 text-danger table-danger" >Belum Voting <i class="fa fa-window-close" aria-hidden="true"></i></td>
-			@endif
+			<td class=" h6 text-danger table-danger" >Belum Voting <i class="fa fa-window-close" aria-hidden="true"></i> </td>
 
 			<!-- tombol -->
 			@if($user->role == 'admin')
@@ -45,10 +41,13 @@
 				@endif
 				<button class="btn btn-outline-warning mb-2" data-toggle="modal" href='#modal-id-1'onclick="edituser('{{$user->id}}')" data-placement="right" title="Edit Pengguna"><i class="fa fa-user-edit" aria-hidden="true"></i> </button>
 			</td>
-			@endif
+			@endif  	<!-- tombol -->
+			@endif      <!-- status -->
+			@endforeach
+			
 			
 		</tr>
-		@endforeach
+		
 	</tbody>
 </table>
 

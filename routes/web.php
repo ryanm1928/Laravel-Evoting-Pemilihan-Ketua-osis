@@ -52,8 +52,13 @@ Route::group(['middleware'=>['Authprotected']],function(){
 	Route::get('/userdata',[UserController::class,'userdata']);
 	Route::get('/cari',[UserController::class,'cari']);
 
-	//Route Hapus
+	//ajax Route Hapus
 	Route::get('/polldelete/{id}',[PollController::class,'polldelete']);
+
+	//ajax route datauser
+	Route::get('voteusercheck',[UserController::class,'uservote']);
+	Route::get('voteusertimes',[UserController::class,'uservotetimes']);
+	Route::get('datavoteuser',[UserController::class,'datavoteuser']);
 
 
 

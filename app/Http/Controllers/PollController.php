@@ -30,7 +30,7 @@ class PollController extends Controller
      */
     public function create()
     {
-      $poll = Poll::where('deadline','>=',date('Y.m.d'))->count();
+      $poll = Poll::where('id','>',0)->count();
       
       return view('admin.create',compact('poll'));
     }
@@ -66,10 +66,14 @@ class PollController extends Controller
       $data->save();
       $request->validate(
         [
-          "choice" => "required"
+          "choice" => "required",
+          "misi" => "required",
+          "visi" => "required"
         ],
         [
-          "choice.required" => "Kolom ini harus di isi"
+          "choice.required" => "Kolom ini harus di isi",
+          "misi.required" => "Kolom misi harus di isi",
+          "visi.required" => "Kolom visi harus di isi" 
         ]);
 
       $pilih = $request->choice;

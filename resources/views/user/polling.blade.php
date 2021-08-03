@@ -6,9 +6,9 @@
 </div>
 <div class="table-responsive">
 	<table class="table table-striped shadow">
-		<thead class="thead-dark">
+		<thead class="bg-primary">
 			<tr>
-				<th scope="col"><center>SILAHKAN PILIH</center></th>
+				<th scope="col"><center class="text-light">SILAHKAN PILIH</center></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -16,7 +16,7 @@
 				<td class="p-1">
 					<div class="row">
 						@foreach($poll->choice as $data)
-						<div class="col-sm-4 mb-4" id="paslon">
+						<div class="col-lg-4 mb-4" id="paslon">
 							<center>
 								<div class="h3">{{$loop->iteration}}</div>
 								<a onClick="uservote({{$data->id}})" data-toggle="modal" href='#modal-id'><img src="{{asset($data->sampul)}}" alt="" class="w-50 mb-1"></a>
@@ -36,7 +36,7 @@
 						?>
 						@for($i=0 ; $i < $jlm ; $i++)
 
-						<div class="col-sm-4 mt-5 mb-3" id="img-none">
+						<div class="col-lg-4 mt-5 mb-3" id="img-none">
 							<center>
 								<button type="submit" class="bg-transparent" style="border:none;outline: none;"><img src="{{asset('gambar/deafult.png')}}" alt="" class="w-50"></button>
 								<i class="fa fa-2x fa-ban mt-3" aria-hidden="true"></i>

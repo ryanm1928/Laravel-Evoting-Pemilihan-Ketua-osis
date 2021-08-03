@@ -4,7 +4,7 @@
 @section('content')
 <div class="h3">Update Data Polling</div>
 <hr>
-<form action="{{route('poll.update',['poll' => $id->id])}}" method="post">
+<form action="{{route('poll.update',['poll' => $id->id])}}" method="post" id="form-edit-poll">
 	@csrf
 	@method('put')
 	<div class="row">
@@ -23,7 +23,7 @@
 			<textarea name="description" cols="20" rows="10" class="form-control shadow" required="">{{$id->description}}</textarea>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-success w-100 mt-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit data Voting</button>
+	<button id="btn-edit-poll" type="submit" class="btn btn-success w-100 mt-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit data Voting</button>
 </form>
 
 
@@ -54,4 +54,10 @@
 		</tbody>
 	</table>
 </div>
+<script type="text/javascript">
+	$('#form-edit-poll').on('submit',function(){
+		$('#btn-edit-poll').attr('disabled', 'true');
+
+	});
+</script>
 @endsection

@@ -16,10 +16,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-     $vote = Vote::all()->count();
-     $datapemilih = User::where('id','>',0)->count();
-     return view('admin.datauser',compact('datapemilih','vote'));
- }
+
+        return view('admin.datauser');
+    }
 
 
 
@@ -62,7 +61,7 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->nama;
         $user->password = bcrypt($request->password);
-        $user->role = 'user';
+        $user->role = $request->role;
         $user->kelas_id = $request->kelas;
         $user->save();
         return redirect('datauser')->with('status','User berhasil di tambahkan');
@@ -112,14 +111,14 @@ class UserController extends Controller
 
         if($request->password == null)
         {
-           $data = User::where('id',$user->id)
-           ->update([
+         $data = User::where('id',$user->id)
+         ->update([
             'name' => $request->nama,
             'password' => $user->password
 
         ]);
 
-       }else{
+     }else{
 
         $data = User::where('id',$user->id)
         ->update([
@@ -149,15 +148,39 @@ class UserController extends Controller
     {
 
       $data = User::where('name' , 'like' ,'%'.$request->cari.'%')->get();
-      return view('admin.cari.caridata',compact('data','request'));
+      return view('admin.userdata.userdata',compact('data','request'));
   }
 
-  public function userdata()
+
+
+  public function uservote()
   {
+    $data = User::all();
+
+    return view('admin.userdata.usercheck',compact('data'));
+
+}
+
+public function uservotetimes()
+{
+    $data = User::all();
+    
+    return view('admin.userdata.usertimes',compact('data'));
+
+}
+
+public function userdata()
+{
 
     $data = User::all();
     return view('admin.userdata.userdata',compact('data'));
 }
 
+public function datavoteuser()
+{
+   $vote = Vote::all()->count();
+   $datapemilih = User::where('id','>',0)->count();
+   return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
+}
 
 }

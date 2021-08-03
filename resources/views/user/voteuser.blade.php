@@ -12,7 +12,7 @@
 		<div class="mb-1" align="center"><span class="h6">VISI:</span> {{$data->visi}}</div>
 		<div class="" align="center"><span class="h6">MISI:</span> {{$data->misi}}</div>
 		<div class="modal-footer mt-3 mr-auto">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+			<button id="btn-kembali" type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
 			<button type="submit" class="btn btn-primary" style="width: 120px" id="btn-vote">Pilih</button>
 		</div>
 	</form>
@@ -23,6 +23,7 @@
 <script type="text/javascript">
 	$('#form-vote').on('submit',function(){
 		$('#btn-vote').attr('disabled', 'true');
+		$('#btn-kembali').css('display', 'none');
 
 	});
 </script>

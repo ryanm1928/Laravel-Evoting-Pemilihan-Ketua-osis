@@ -8,7 +8,9 @@
 <div class="alert alert-warning"><li class="fa fa-envelope"></li> Pesan kosong</div>
 @else
 @if(session('status'))
-<div class="alert alert-success"><i class="fa fa-check-circle" aria-hidden="true"></i> {{session('status')}}</div>
+<div class="alert alert-success"><i class="fa fa-check-circle" aria-hidden="true"></i> {{session('status')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
 @endif
 <div class="row">
 	@foreach($mail as $pesan)
