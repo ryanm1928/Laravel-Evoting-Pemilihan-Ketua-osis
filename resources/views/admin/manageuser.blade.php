@@ -8,6 +8,10 @@
 <form action="/datauser" method="post" id="form-user">
 	@csrf
 	<div class="row">
+		<div class="col-sm-12 mb-3">
+			<label for=""><i class="fa fa-user" aria-hidden="true"></i> Masukan Nama :</label>
+			<input type="text" placeholder="Masukan nama..." name="username" class="form-control">
+		</div>
 		<div class="col-sm-12">
 			<label for=""><i class="fa fa-user" aria-hidden="true"></i> Masukan ID :</label>
 			<input type="text" placeholder="Masukan ID..." name="nama" class="form-control">
@@ -16,6 +20,7 @@
 			<label for=""> <i class="fa fa-unlock-alt" aria-hidden="true"></i> Masukan Password:</label>
 			<input type="password" placeholder="Masukan Sandi..." name="password" class="form-control">
 		</div>
+		
 		<div class="col-sm-12 mt-3">
 			<label><i class="fa fa-home" aria-hidden="true"></i> Masukan Kelas:</label>
 			<select name="kelas" id="" class="form-control">

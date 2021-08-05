@@ -3,6 +3,7 @@
 		<tr>
 			<th scope="col">No</th>
 			<th scope="col">Nama</th>
+			<th scope="col">Id</th>
 			<th scope="col">Kelas</th>
 			<th scope="col">Status</th>
 			<th scope="col">Action</th>
@@ -14,7 +15,8 @@
 		@foreach($data as $user)
 		<tr>
 			<td scope="row">{{$loop->iteration}}</td>
-			<td style="width: 420px">{{$user->name}}</td>
+			<td style="width: 350px">{{$user->username}}</td>
+			<td>{{$user->name}}</td>
 			<td style="width: 150px;">{{$user->userkelas->kelas}}</td>
 
 			<!-- status -->

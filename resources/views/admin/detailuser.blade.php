@@ -15,7 +15,7 @@
 		<tbody>
 			<tr>
 				<th scope="row">1</th>
-				<td>{{$user->name}}</td>
+				<td>{{$user->username}}</td>
 				@foreach($vote as $data)
 				<td>{{$data->polling->title}}</td>
 				<td>

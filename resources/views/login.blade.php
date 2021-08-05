@@ -24,7 +24,7 @@
 						<div class="input-group-prepend">
 							<span class="" id="basic-addon1"><li class="fa fa-user mr-2 mt-2"></li></span>
 						</div>
-						<input type="text" placeholder="Masukan username..." name="name" required="" class="form-control garis">
+						<input type="text" placeholder="Masukan id..." name="name" required="" class="form-control garis">
 						@error('name')
 						<div class="invalid-feedback">
 							{{$message}}

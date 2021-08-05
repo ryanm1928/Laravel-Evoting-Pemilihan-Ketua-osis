@@ -17,7 +17,7 @@
 	<div class="col-sm-12 mb-4">
 		<div class="h3"></div>
 		<div class="table-primary p-4">
-			<div class="mb-2"><li class="fa fa-user"></li> <span class="h5">{{$pesan->user->name}} :</span></div>
+			<div class="mb-2"> <span class="h5">{{$pesan->user->username}} :</span></div>
 			<div class="mx-2">{{$pesan->pesan}}</div>
 			
 

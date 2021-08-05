@@ -5,6 +5,11 @@
 		@method('put')
 		<div class="row">
 			<div class="col-sm-12">
+				<label for=""><i class="fa fa-user" aria-hidden="true"></i> Masukan nama baru :</label>
+				<input type="text" placeholder="Masukan username..." name="username" class="form-control" value="{{$user->username}}">
+			</div>
+
+			<div class="col-sm-12">
 				<label for=""><i class="fa fa-user" aria-hidden="true"></i> Masukan username baru :</label>
 				<input type="text" placeholder="Masukan ID..." name="nama" class="form-control" value="{{$user->name}}">
 			</div>

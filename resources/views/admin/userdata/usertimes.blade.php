@@ -3,6 +3,7 @@
 		<tr>
 			<th scope="col">No</th>
 			<th scope="col">Nama</th>
+			<th scope="col">Id</th>
 			<th scope="col">Kelas</th>
 			<th scope="col">Status</th>
 			<th scope="col">Action</th>
@@ -15,7 +16,8 @@
 		<tr>
 			@if($user->voteuser->count() == 0)
 			<td scope="row">{{$loop->iteration}}</td>
-			<td style="width: 420px">{{$user->name}}</td>
+			<td style="width: 350px">{{$user->username}}</td>
+			<td>{{ $user->name }}</td>
 			<td style="width: 150px;">{{$user->userkelas->kelas}}</td>
 			<!-- status -->
 			<td class=" h6 text-danger table-danger" >Belum Voting <i class="fa fa-window-close" aria-hidden="true"></i> </td>

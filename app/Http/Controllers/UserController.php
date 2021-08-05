@@ -44,6 +44,7 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:30',
+            'username' => 'required',
             'password' => 'required|max:30',
             'kelas' => 'required'
 
@@ -51,6 +52,7 @@ class UserController extends Controller
         ],
         [
             'nama.required' => 'Nama harus di isi',
+            'username.required' => 'Nama harus di isi',
             'nama.max' => 'Nama tidak boleh dari 30 huruf',
             'password.required' => 'Sandi harus di isi',
             'password.max' =>  'Sandi tidak boleh lebih dari 3 huruf',
@@ -60,6 +62,7 @@ class UserController extends Controller
 
         $user = new User;
         $user->name = $request->nama;
+        $user->username = $request->username;
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->kelas_id = $request->kelas;
@@ -67,120 +70,122 @@ class UserController extends Controller
         return redirect('datauser')->with('status','User berhasil di tambahkan');
     }
 
-    /**
+        /**
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
-    {
+        public function show(User $user)
+        {
 
-        $vote = Vote::where("user_id",$user->id)->get();
-        return view('admin.detailuser',compact('user','vote'));
-    }
+            $vote = Vote::where("user_id",$user->id)->get();
+            return view('admin.detailuser',compact('user','vote'));
+        }
 
-    /**
+        /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
-    {
-        $kelas = Kelas::all();
-        return view('admin.edituser',compact('user','kelas'));
-    }
+        public function edit(User $user)
+        {
+            $kelas = Kelas::all();
+            return view('admin.edituser',compact('user','kelas'));
+        }
 
-    /**
+        /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
-    {
-        $request->validate([
-            'nama' => 'required',
-
-        ],
-        [
-            'nama.required' => 'Nama Harus di isi', 
-        ]);
-
-        if($request->password == null)
+        public function update(Request $request, User $user)
         {
-         $data = User::where('id',$user->id)
-         ->update([
-            'name' => $request->nama,
-            'password' => $user->password
+            $request->validate([
+                'nama' => 'required',
+                'username' => 'required'
 
-        ]);
+            ],
+            [
+                'nama.required' => 'Nama Harus di isi', 
+            ]);
 
-     }else{
+            if($request->password == null)
+            {
+             $data = User::where('id',$user->id)
+             ->update([
+                 'name' => $request->nama,
+                 'username' => $request->username,
+                 'password' => $user->password
 
-        $data = User::where('id',$user->id)
-        ->update([
-            'name' => $request->nama,
-            'password' => bcrypt($request->password)
-        ]);
+             ]);
+
+         }else{
+
+            $data = User::where('id',$user->id)
+            ->update([
+                'name' => $request->nama,
+                'password' => bcrypt($request->password)
+            ]);
+        }
+
+        return redirect('datauser')->with('status','Data barhasil di ubah');
     }
 
-    return redirect('datauser')->with('status','Data barhasil di ubah');
-}
-
-    /**
+        /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
-    {
-        $data = User::destroy($user->id);
-        return redirect('datauser')->with('delete','Data telah berhasil di hapus');
+        public function destroy(User $user)
+        {
+            $data = User::destroy($user->id);
+            return redirect('datauser')->with('delete','Data telah berhasil di hapus');
 
-    }
-
-
-    public function cari(Request $request)
-    {
-
-      $data = User::where('name' , 'like' ,'%'.$request->cari.'%')->get();
-      return view('admin.userdata.userdata',compact('data','request'));
-  }
+        }
 
 
+        public function cari(Request $request)
+        {
 
-  public function uservote()
-  {
-    $data = User::all();
+            $data = User::where('username' , 'like' ,'%'.$request->cari.'%')->get();
+            return view('admin.userdata.userdata',compact('data','request'));
+        }
 
-    return view('admin.userdata.usercheck',compact('data'));
 
-}
 
-public function uservotetimes()
-{
-    $data = User::all();
-    
-    return view('admin.userdata.usertimes',compact('data'));
+        public function uservote()
+        {
+            $data = User::all();
 
-}
+            return view('admin.userdata.usercheck',compact('data'));
 
-public function userdata()
-{
+        }
 
-    $data = User::all();
-    return view('admin.userdata.userdata',compact('data'));
-}
+        public function uservotetimes()
+        {
+            $data = User::all();
 
-public function datavoteuser()
-{
-   $vote = Vote::all()->count();
-   $datapemilih = User::where('id','>',0)->count();
-   return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
-}
+            return view('admin.userdata.usertimes',compact('data'));
 
-}
+        }
+
+        public function userdata()
+        {
+
+            $data = User::all();
+            return view('admin.userdata.userdata',compact('data'));
+        }
+
+        public function datavoteuser()
+        {
+           $vote = Vote::all()->count();
+           $datapemilih = User::where('id','>',0)->count();
+           return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
+       }
+
+   }

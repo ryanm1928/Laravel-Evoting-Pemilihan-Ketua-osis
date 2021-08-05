@@ -38,8 +38,8 @@
 				<td align="center">{{$data->deadline}}</td>
 				<td>{{$data->creator->name}}</td>
 				<td>
-					<button onClick="hapus({{$data->id}})" class="btn btn-outline-danger" title="Hapus" data-toggle="modal" href='#modal-id'><li class="fa fa-trash"></li> </button>
-					<br>
+					<button onClick="hapus({{$data->id}})" class="btn btn-outline-danger mt-2" title="Hapus" data-toggle="modal" href='#modal-id'><li class="fa fa-trash"></li> </button>
+					
 					<a href="{{route('poll.edit',['poll' => $data->id])}}" title="Edit data" class="btn btn-outline-warning mt-2 "><i class="fa fa-edit" aria-hidden="true"></i> </a>
 				</td>
 			</tr>
