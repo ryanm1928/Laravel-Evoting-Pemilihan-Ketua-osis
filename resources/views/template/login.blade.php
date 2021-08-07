@@ -8,13 +8,14 @@
 	<style>
 	body{
 		
-		background-color: rgba(0,0,0,.07);
+		/* background-color: rgba(0,0,0,.07); */
 		padding-top: 4%;
 		padding-bottom: 3%;
+
 	}
 	.container{
 		background-color: white;
-		box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+		/* box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important; */
 	}
 	.form-control{
 		border: none;
@@ -26,13 +27,30 @@
 		display: none;
 
 	}
+	#foot-login{
+		margin-left: 30px;
+		margin-top: 60px;
+	}
+	#btn-ganti{
+		width: 75%;
+	}
+	#cancel{
+		width: 23%;
+	}
 	@media(max-width:768px )
 	{
 		#foot-login{
 			margin-left: 70px;
+			margin-top: 0px;
 		}
 		#login-contact{
 			margin-left: 10px;
+		}
+		#btn-ganti{
+			width: 100%;
+		}
+		#cancel{
+			width: 100%;
 		}
 
 	}
@@ -41,9 +59,16 @@
 	{
 		#foot-login{
 			margin-left: 30px;
+			margin-top: 0px;
 		}
 		#login-contact{
 			margin-left: 10px;
+		}
+		#btn-ganti{
+			width: 100%;
+		}
+		#cancel{
+			width: 100%;
 		}
 		body{
 			padding-top: 0%;
@@ -57,6 +82,9 @@
 <script src="/js/jquery.js"></script>
 </head>
 <body>
+	<div class="container pl-0">
+		@yield('content-alert')
+	</div>
 	<div class="container p-5">
 		@yield('content')
 	</div>

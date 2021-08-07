@@ -71,7 +71,7 @@ class AuthController extends Controller
 		],
 		[
 			'name.required' => 'Username harus di isi',
-			'password.required' => 'password harus di isi'
+			'password.required' => 'Password harus di isi'
 		]);
 
 		$data = (object) $request->only('name','password');
@@ -84,7 +84,7 @@ class AuthController extends Controller
 				return redirect('/user');
 			}
 		}else{
-			return redirect('/')->with('status','Login gagal Username / Password salah ');
+			return redirect('/')->with('status','Login gagal harap masukan Id dan password yang benar ');
 		}
 	}
 

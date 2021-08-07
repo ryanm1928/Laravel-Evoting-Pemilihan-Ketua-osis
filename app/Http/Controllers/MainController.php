@@ -94,7 +94,7 @@ class MainController extends Controller
 		[
 			'username.required' => "Username harus di isi",
 			'old_password.required' => "Password lama harus di isi",
-			'new_password' => "Password baru harus di isi"
+			'new_password.required' => "Password baru harus di isi"
 		]);
 
 		$user = User::where('name' , $request->username)->get();

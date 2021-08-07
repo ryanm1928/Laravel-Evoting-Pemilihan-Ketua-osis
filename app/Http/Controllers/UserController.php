@@ -62,7 +62,7 @@ class UserController extends Controller
 
         $user = new User;
         $user->name = $request->nama;
-        $user->username = $request->username;
+        $user->username = strtoupper($request->username);
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->kelas_id = $request->kelas;
@@ -118,7 +118,7 @@ class UserController extends Controller
              $data = User::where('id',$user->id)
              ->update([
                  'name' => $request->nama,
-                 'username' => $request->username,
+                 'username' =>strtoupper( $request->username),
                  'password' => $user->password
 
              ]);
@@ -128,6 +128,7 @@ class UserController extends Controller
             $data = User::where('id',$user->id)
             ->update([
                 'name' => $request->nama,
+                'username' =>strtoupper( $request->username),
                 'password' => bcrypt($request->password)
             ]);
         }

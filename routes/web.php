@@ -59,11 +59,7 @@ Route::group(['middleware'=>['Authprotected']],function(){
 	Route::get('voteusercheck',[UserController::class,'uservote']);
 	Route::get('voteusertimes',[UserController::class,'uservotetimes']);
 	Route::get('datavoteuser',[UserController::class,'datavoteuser']);
-
-
-
 	
-
 });
 
 //user
