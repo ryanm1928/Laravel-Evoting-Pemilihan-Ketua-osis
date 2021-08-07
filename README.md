@@ -2,14 +2,16 @@ how to use this application: <br>
 *open the terminal that points to this application folder  <br>
 *then run the command below:  <br>
 
-<h1>
+<h5>
 -php artisan confiq: chache  <br>
 -php artisan migrate  <br>
 -php artisan db: seed --class = DataSeeder  <br>
-</h1>
+</h5>
 
+<h6 style="font-family:italic">
 *if the asset image in this application does not appear  <br>
 php artisan storage command path: link  <br>
+</h6>
 
 then the last php artisan: serve  <br>
 
