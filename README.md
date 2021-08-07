@@ -1,3 +1,27 @@
+how to use this application:
+*open the terminal that points to this application folder
+*then run the command below:
+
+-php artisan confiq: chache
+-php artisan migrate
+-php artisan db: seed --class = DataSeeder
+
+*if the asset image in this application does not appear
+php artisan storage command path: link
+
+then the last php artisan: serve
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
