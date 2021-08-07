@@ -1,15 +1,15 @@
-how to use this application:
-*open the terminal that points to this application folder
-*then run the command below:
+how to use this application: <br>
+*open the terminal that points to this application folder  <br>
+*then run the command below:  <br>
 
--php artisan confiq: chache
--php artisan migrate
--php artisan db: seed --class = DataSeeder
+-php artisan confiq: chache  <br>
+-php artisan migrate  <br>
+-php artisan db: seed --class = DataSeeder  <br>
 
-*if the asset image in this application does not appear
-php artisan storage command path: link
+*if the asset image in this application does not appear  <br>
+php artisan storage command path: link  <br>
 
-then the last php artisan: serve
+then the last php artisan: serve  <br>
 
 
 
