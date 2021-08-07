@@ -8,7 +8,7 @@ how to use this application: <br>
 -php artisan db: seed --class = DataSeeder  <br>
 </h3>
 
-<h6 style="font-family:italic">
+<h6 style="text-decoration:underline">
 *if the asset image in this application does not appear  <br>
 php artisan storage command path: link  <br>
 </h6>
