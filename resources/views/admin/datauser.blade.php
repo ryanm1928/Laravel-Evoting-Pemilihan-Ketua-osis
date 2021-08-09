@@ -14,11 +14,14 @@
 </div>
 @endif
 <div class="row">
-	<div class="col-sm-11 mb-2">
-		<input type="text" class="form-control" name="cari" id="cari" placeholder="🔎 Cari pengguna...">
+	<div class="col-sm-11 mb-2 input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search" aria-hidden="true"></i></span>
+		</div>
+		<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cari" id="cari" placeholder="Search..">
 	</div>
 	<div class="col-sm-1">
-		<a href="/datauser"><li class="fa fa-2x fa-retweet text-muted" aria-hidden="true" title="Refresh"></li></a>
+		<a href="/datauser"><i class="fa fa-2x mt-1 fa-refresh" aria-hidden="true" title="Refresh"></i></a>
 	</div>
 </div>
 <hr>

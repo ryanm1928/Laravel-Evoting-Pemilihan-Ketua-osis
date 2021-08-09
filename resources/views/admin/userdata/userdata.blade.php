@@ -29,7 +29,7 @@
 			<!-- tombol -->
 			@if($user->role == 'admin')
 			<td>
-				<button class="btn btn-default text-primary mb-2 mt-2 w-100" data-toggle="modal" href='#modal-id-1'onclick="edituser('{{$user->id}}')" ><i class="fa fa-user-edit" aria-hidden="true"></i> Edit admin</button>
+				<button class="btn btn-default text-primary mb-2 mt-2 w-100" data-toggle="modal" href='#modal-id-1'onclick="edituser('{{$user->id}}')" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit admin</button>
 			</td>
 			@else
 			<td>
@@ -45,7 +45,7 @@
 				@else
 				<button style="background-color: #BCBCBC;" class="btn mb-2"><i class="fa fa-ban" aria-hidden="true"></i></button>
 				@endif
-				<button class="btn btn-outline-warning mb-2" data-toggle="modal" href='#modal-id-1'onclick="edituser('{{$user->id}}')" data-placement="right" title="Edit Pengguna"><i class="fa fa-user-edit" aria-hidden="true"></i> </button>
+				<button class="btn btn-outline-warning mb-2" data-toggle="modal" href='#modal-id-1'onclick="edituser('{{$user->id}}')" data-placement="right" title="Edit Pengguna"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button>
 			</td>
 			@endif
 			

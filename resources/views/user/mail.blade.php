@@ -18,7 +18,7 @@
 		</div>
 		@foreach($reply as $data)
 		<div class="col-sm-12 alert alert-success mt-4">
-			<div class="h5" align="left"><li class="fa fa-reply"></li> {{$data->mails->pesan}},</div>
+			<div class="h5" align="left"><i class="fa fa-reply-all" aria-hidden="true"></i> {{$data->mails->pesan}},</div>
 			<div class="mx-4 mt-2" style="font-size: 17px"> {{$data->balasan}}</div>
 
 			<div class="row mt-2">

@@ -7,8 +7,7 @@
 	<title>@yield('title')</title>
 	<script src="/js/jquery.js"></script>
 	<script type="/js/jquery-slim.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/icon/css/font-awesome.min.css">
 	<style>
 	#icon{
 		margin-top: 50px;
@@ -23,7 +22,9 @@
 		#img-none{
 			display: none;
 		}
+
 	}
+
 	#paslon:hover{
 		background-color: #007bff;
 		color: white;
@@ -38,10 +39,12 @@
 	}
 	
 
-	@media(max-width:375px )
+	@media(max-width:575px )
 	{
+		
 		#user-icon{
-			font-size: 70px;
+			margin-top: 0;
+			font-size: 80px;
 		}
 	}
 	
@@ -49,7 +52,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg  bg-primary mb-3">
+	<nav class="navbar navbar-expand-lg  bg-primary mb-3 fixed-top">
 		<div class="container">
 			<div class="navbar-brand text-light display-3">E-Voting</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +77,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container" style="margin-top:75px">
 		@yield('content')
 	</div>
 </body>

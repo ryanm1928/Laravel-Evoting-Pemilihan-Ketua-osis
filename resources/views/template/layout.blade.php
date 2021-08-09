@@ -12,11 +12,11 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/header/style.css">
+    <link rel="stylesheet" href="/icon/css/font-awesome.min.css">
 
     <!-- Our Custom CSS -->
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
     <script src="/js/jquery-slim.js"></script>
 </head>
 
@@ -25,7 +25,7 @@
 		<!-- Sidebar  -->
 		<nav id="sidebar">
 			<div class="sidebar-header" style="font-size: 22px;font-style: bold;">
-				<i class="fas fa-user-circle"></i> Admin Dashboard
+				<i class="fa fa-user-circle" aria-hidden="true"></i> Admin Dashboard
 			</div>
             <ul class="list-unstyled components">
                 <li  class="@yield('home')" >
@@ -39,7 +39,7 @@
                 <a class="" href="/resultvote">  <i class="fa fa-eye" aria-hidden="true"></i> Lihat Voting </a>
             </li>
             <li  class="@yield('datauser')" >
-                <a class="" href="/datauser">  <i class="fa fa-chart-bar" aria-hidden="true"></i> Statistik Pengguna</a>
+                <a class="" href="/datauser">  <i class="fa fa-bar-chart" aria-hidden="true"></i> Statistik Pengguna</a>
             </li>
             <li  class="@yield('tambah')" >
                 <a class="" href="/manageuser"> <i class="fa fa-user-plus" aria-hidden="true"></i> Tambah Pengguna</a>
@@ -51,7 +51,7 @@
                 <a class="" href="/contact"><i class="fa fa-user-secret" aria-hidden="true"></i> Contact</a>
             </li>
             <li>
-                <a class="" href="/logout">   <i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a class="" href="/logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             </li>
 
         </ul>

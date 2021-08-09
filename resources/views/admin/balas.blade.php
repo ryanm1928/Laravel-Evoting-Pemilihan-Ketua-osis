@@ -1,8 +1,8 @@
 
 
 <div class="table-primary p-3 mb-3" align="left">
-	<div class="h4">{{$mail->user->username}}:</div>
-	<div class="h6">{{$mail->pesan}}</div>
+	<div class="h4"> {{$mail->user->username}}:</div>
+	<div class="h6"><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$mail->pesan}}</div>
 </div>
 <form action="/sendreply" method="post" id="form-balas">
 	@csrf

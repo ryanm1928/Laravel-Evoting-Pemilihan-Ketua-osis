@@ -49,7 +49,7 @@
 			<form action="/gantisandi" method="post" id="gantisandi-form">
 				@csrf
 				<center>
-					<div class="h1 mb-3" style="font-style: bold;">Ubah password</div>
+					<div class="h1 mb-4" style="font-style: bold;">Ubah password</div>
 				</center>
 				<div class=" mb-4">
 					<div class="input-group input-group-sm">
@@ -104,11 +104,11 @@
 		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline; cursor:pointer;"> Ubah Password?</div>
 	</div>
 	<div class="col-md-4 mt-4" id="login-contact">
-		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><img src="{{asset('gambar/socialmediaicon_01.png')}}" alt="" style="width: 38px"></a>
-		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><img src="{{asset('gambar/socialmediaicon_06.png')}}" alt="" style="width: 38px"></a>
-		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><img src="{{asset('gambar/socialmediaicon_09.png')}}" alt="" style="width: 38px"></a>
-		<a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><img src="{{asset('gambar/socialmediaicon_20.png')}}" alt="" style="width: 38px"></a>
-		<div class="text text-muted" style="font-size: 13px">made by MOHAMAD RIYAN</div>
+		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-facebook-official" aria-hidden="true"></i></a>
+		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-whatsapp" aria-hidden="true"></i></a>
+		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-instagram" aria-hidden="true"></i></a>
+		<a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-github" aria-hidden="true"></i></a>
+		<div class="text text-muted" style="font-size: 12px">made by MOHAMAD RIYAN</div>
 	</div>
 </div>
 
