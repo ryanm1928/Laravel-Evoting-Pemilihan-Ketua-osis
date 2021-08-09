@@ -64,7 +64,7 @@
 				</ul>
 				<div class="nav-item dropdown ">
 					<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<li class="fa fa-user"></li> {{auth()->user()->username}}
+						<li class="fa fa-user"></li> {{  strtoupper(auth()->user()->username)}}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/user-mails">Kirim pesan ke admin</a>

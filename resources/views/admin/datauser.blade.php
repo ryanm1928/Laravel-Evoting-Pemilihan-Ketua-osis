@@ -66,13 +66,17 @@
 <script type="text/javascript">
 
 	$(window).on('load',function(){
-		$('#table').html('<div class="h4 mt-2"><li class="fa fa-search"></li> Memuat data..</div>')
+		$('#table').html(`<center>
+			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>
+			</center>`)
 		userdata()
 		datavoteuser()
 	})
 
 	$('#cari').keyup(function(event) {
-		$('#table').html('<div class="h4 mt-2"><li class="fa fa-search"></li> Memuat data..</div>')
+		$('#table').html(`<center>
+			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>
+			</center>`)
 		if($('#cari').val() == "")
 		{
 			userdata();

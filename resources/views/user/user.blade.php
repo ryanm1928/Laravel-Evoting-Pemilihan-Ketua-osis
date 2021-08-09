@@ -2,14 +2,14 @@
 @section('title','E-Voting')
 @section('content')
 
-
+@if(session('pesan'))
+<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('pesan')}}
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+@endif
 @if($deadline >= 1)
 @if(session('status'))
 <div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-</div>
-@elseif(session('pesan'))
-<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('pesan')}}
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 </div>
 @else

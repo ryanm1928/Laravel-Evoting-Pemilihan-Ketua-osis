@@ -62,7 +62,7 @@ class UserController extends Controller
 
         $user = new User;
         $user->name = $request->nama;
-        $user->username = strtoupper($request->username);
+        $user->username = $request->username;
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
         $user->kelas_id = $request->kelas;
@@ -115,20 +115,20 @@ class UserController extends Controller
 
             if($request->password == null)
             {
-             $data = User::where('id',$user->id)
-             ->update([
-                 'name' => $request->nama,
-                 'username' =>strtoupper( $request->username),
-                 'password' => $user->password
+               $data = User::where('id',$user->id)
+               ->update([
+                   'name' => $request->nama,
+                   'username' => $request->username,
+                   'password' => $user->password
 
-             ]);
+               ]);
 
-         }else{
+           }else{
 
             $data = User::where('id',$user->id)
             ->update([
                 'name' => $request->nama,
-                'username' =>strtoupper( $request->username),
+                'username' => $request->username,
                 'password' => bcrypt($request->password)
             ]);
         }
@@ -184,9 +184,9 @@ class UserController extends Controller
 
         public function datavoteuser()
         {
-           $vote = Vote::all()->count();
-           $datapemilih = User::where('id','>',0)->count();
-           return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
-       }
+         $vote = Vote::all()->count();
+         $datapemilih = User::where('id','>',0)->count();
+         return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
+     }
 
-   }
+ }
