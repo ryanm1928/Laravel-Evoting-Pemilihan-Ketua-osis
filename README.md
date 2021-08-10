@@ -3,7 +3,10 @@ how to use this application: <br>
 *then run the command below:  <br>
 
 <h3>
--php artisan confiq: chache  <br>
+-composer install
+-ubah file .env-exmpale menjadi .env
+-php artisan key:generate
+ -php artisan config:cache  <br>
 -php artisan migrate  <br>
 -php artisan db: seed --class = DataSeeder  <br>
 </h3>
