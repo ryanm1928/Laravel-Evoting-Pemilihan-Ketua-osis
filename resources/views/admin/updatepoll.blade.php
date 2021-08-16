@@ -10,17 +10,17 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<label for="">Masukan judul baru:</label>
-			<input type="text" name="title" value="{{$id->title}}" class="form-control shadow" required="">
+			<input type="text" name="title" value="{{$id->title}}" class="form-control" required="">
 		</div>
 		<div class="col-sm-6 ">
 			<label for="">Masukan deadline baru:</label>
-			<input type="date" name="deadline" value="{{date('Y-m-d').strtotime('$id->deadline')}}" class="form-control shadow" required="">
+			<input type="date" name="deadline" value="{{date('Y-m-d').strtotime('$id->deadline')}}" class="form-control" required="">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12 mt-3">
 			<label for="">Masukan deskripsi baru: </label>
-			<textarea name="description" cols="20" rows="10" class="form-control shadow" required="">{{$id->description}}</textarea>
+			<textarea name="description" cols="20" rows="10" class="form-control" required="">{{$id->description}}</textarea>
 		</div>
 	</div>
 	<button id="btn-edit-poll" type="submit" class="btn btn-success w-100 mt-3"><i class="fa fa-edit" aria-hidden="true"></i> Edit data Voting</button>
