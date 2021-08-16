@@ -8,7 +8,7 @@ how to use this application: <br>
 -php artisan key:generate <br>
  -php artisan config:cache  <br>
 -php artisan migrate  <br>
--php artisan db: seed --class = DataSeeder  <br>
+-php artisan db:seed --class=DataSeeder<br>
 </h3>
 
 <h6 style="text-decoration: underline;">
