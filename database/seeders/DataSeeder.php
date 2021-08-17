@@ -73,9 +73,9 @@ class DataSeeder extends Seeder
 
             ],
             [
-                "name" => "user",
+                "name" => "195648",
                 'username' =>"KURNIA ARDIANSYAH",
-                "password" => bcrypt('user123'),
+                "password" => bcrypt('12345'),
                 "role" => "user",
                 "kelas_id" => 1
 

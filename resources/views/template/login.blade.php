@@ -39,13 +39,7 @@
 	}
 	@media(max-width:768px )
 	{
-		#foot-login{
-			margin-left: 70px;
-			margin-top: 0px;
-		}
-		#login-contact{
-			margin-left: 10px;
-		}
+		
 		#btn-ganti{
 			width: 100%;
 		}
@@ -57,12 +51,12 @@
 
 	@media(max-width:575px )
 	{
-		#foot-login{
-			margin-left: 40px;
+		#foot-login .col-sm-8{
+			margin-left: -2rem;
 			margin-top: 0px;
 		}
 		#login-contact{
-			margin-left: 20px;
+			margin-left: -3rem;
 		}
 		#btn-ganti{
 			width: 100%;
@@ -75,7 +69,28 @@
 			padding-bottom: 0%;
 		}
 	}
-	
+	@media (max-width: 375px)
+	{
+		#foot-login{
+			margin-top: 0;
+		}
+		/* update yang ini */
+		#foot-login .col-sm-8{  
+			margin-left: -3.5rem;
+			margin-top: 0px;
+		}
+		#login-contact{
+			margin-left: -4rem;
+			font-size: 15px;
+		}
+	}
+	@media (max-width: 540px)
+	{
+		#foot-login{
+			margin-left: 7rem;
+			margin-top: 0px;
+		}
+	}
 </style>
 <link rel="stylesheet" href="/icon/css/font-awesome.min.css">
 <script src="/js/jquery.js"></script>

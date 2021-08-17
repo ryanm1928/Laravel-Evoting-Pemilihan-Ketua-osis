@@ -19,7 +19,7 @@
 @foreach($poll as $data)
 <div class="row bg-primary user-content shadow mb-3">
 	<div class="col-xl-7 p-5">
-		<div class="h2 text-light" align="center">{{$data->title}}</div>
+		<div class="h2 text-light" align="center" id="title">{{$data->title}}</div>
 		<div class="text mb-3 mt-3 text-light" style="font-size: 16px"><li>{{$data->description}}</li></div>
 		<div class="text-light"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></li> Batas waktu sampai:</div>
 		<div class="text-light h6">{{$data->deadline}}</div>

@@ -99,11 +99,10 @@
 	</div>
 </div>
 <div class="row" id="foot-login">
-	<div class="col-md-8 mt-5">
-		<div class="text-primary d-inline" style="text-decoration:underline; cursor:pointer;">Buat akun?</div>
+	<div class="col-sm-8 mt-5">
 		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline; cursor:pointer;"> Ubah Password?</div>
 	</div>
-	<div class="col-md-4 mt-4" id="login-contact">
+	<div class="col-sm-4 mt-4" id="login-contact">
 		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-facebook-official" aria-hidden="true"></i></a>
 		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-whatsapp" aria-hidden="true"></i></a>
 		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-instagram" aria-hidden="true"></i></a>

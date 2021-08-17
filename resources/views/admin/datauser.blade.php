@@ -69,17 +69,15 @@
 <script type="text/javascript">
 
 	$(window).on('load',function(){
-		$('#table').html(`<center>
-			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>
-			</center>`)
+		$('#table').html(`
+			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>`)
 		userdata()
 		datavoteuser()
 	})
 
 	$('#cari').keyup(function(event) {
-		$('#table').html(`<center>
-			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>
-			</center>`)
+		$('#table').html(`
+			<div class="spinner-border text-primary" role="status"></div><span class="h5"> Memuat data..</span>`)
 		if($('#cari').val() == "")
 		{
 			userdata();
@@ -93,7 +91,7 @@
 
 	function datavoteuser()
 	{
-		$.get("{{url('datavoteuser')}}", function(data) {
+		$.get("{{url('datavoteuser')}}/", function(data) {
 			$("#datavoteuser").html(data);
 		});
 	}

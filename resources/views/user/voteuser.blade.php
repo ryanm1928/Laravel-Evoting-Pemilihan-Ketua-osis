@@ -16,8 +16,6 @@
 			<button type="submit" class="btn btn-primary" style="width: 120px" id="btn-vote">Pilih</button>
 		</div>
 	</form>
-
-	
 </center>
 @endforeach
 <script type="text/javascript">

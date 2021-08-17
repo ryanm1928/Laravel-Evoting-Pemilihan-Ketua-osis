@@ -37,6 +37,8 @@
 	#user-icon{
 		font-size: 120px;
 	}
+
+	
 	
 
 	@media(max-width:575px )
@@ -54,7 +56,7 @@
 
 	<nav class="navbar navbar-expand-lg  bg-primary mb-3 fixed-top">
 		<div class="container">
-			<div class="navbar-brand text-light display-3">E-Voting</div>
+			<div class="navbar-brand text-light ">E-Voting</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<li class="fa fa-2x fa-bars text-light"></li>
 			</button>
@@ -62,7 +64,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link text-light active" href="/user">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link text-light" href="/user">Home <span class="sr-only">(current)</span></a>
 					</li>
 				</ul>
 				<div class="nav-item dropdown ">
@@ -84,10 +86,10 @@
 <footer class="fixed-bottom" style="background-color: #CECECE;">
 	<div class="row p-2">
 		<div class="col-xl-10">
-			<div>©2021-{{date('Y')}}</div>
+			<div>©{{date('Y')}}</div>
 		</div>
 		<div class="col-xl-2">
-			<a href="" style="font-size: 15px;">made by MOHAMAD RIYAN</a>
+			<a href="https://www.instagram.com/riyan.rar/" style="font-size: 15px;">made by MOHAMAD RIYAN</a>
 		</div>
 	</div>
 </footer>

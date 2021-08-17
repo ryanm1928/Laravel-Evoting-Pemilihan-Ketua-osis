@@ -9,8 +9,8 @@
 			<form action="/send-mails" method="post" id="form-pesan">
 				@csrf
 				<div  class="row">
-					<label for="">Tulis pesan di sini:</label>
-					<textarea name="pesan" id="" cols="30" rows="10" class="form-control" required=""></textarea>
+					<label for="">Tulis pesan beserta No telepon anda ( Admin akan megirim konfirmasi ke no Whatsapp anda )</label>
+					<textarea placeholder="08x-xxx-xxx ~ Pesan" name="pesan" id="" cols="30" rows="10" class="form-control" required=""></textarea>
 					<button id="btn-pesan" type="submit" class="btn btn-primary mt-3" style="width: 100%;"><span id="text-pesan"><li class="fa fa-paper-plane"></li> Kirim Pesan</span></button>
 				</div>
 
