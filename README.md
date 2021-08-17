@@ -3,9 +3,12 @@ how to use this application: <br>
 *then run the command below:  <br>
 
 <h3>
--php artisan confiq: chache  <br>
+-composer install <br>
+-ubah file .env-exmpale menjadi .env <br>
+-php artisan key:generate <br>
+ -php artisan config:cache  <br>
 -php artisan migrate  <br>
--php artisan db: seed --class = DataSeeder  <br>
+-php artisan db:seed --class=DataSeeder<br>
 </h3>
 
 <h6 style="text-decoration: underline;">
