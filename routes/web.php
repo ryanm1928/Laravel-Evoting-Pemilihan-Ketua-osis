@@ -20,6 +20,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/',[AuthController::class,'index']);
 Route::post('/login',[AuthController::class,'actionlogin']);
+// Route::get('/hash',[AuthController::class,'acaksandi']);
 
 //admin
 Route::group(['middleware'=>['Authprotected']],function(){
