@@ -76,12 +76,27 @@
 		}
 		/* update yang ini */
 		#foot-login .col-sm-8{  
-			margin-left: -3.5rem;
+			margin-left: -3rem;
 			margin-top: 0px;
 		}
 		#login-contact{
 			margin-left: -4rem;
 			font-size: 15px;
+		}
+	}
+	@media (max-width: 360px)
+	{
+		#foot-login{
+			margin-top: 0;
+		}
+		/* update yang ini */
+		#foot-login .col-sm-8{  
+			margin-left: -3.9rem;
+			margin-top: 0px;
+		}
+		#login-contact{
+			margin-left: -4rem;
+			font-size: 13px;
 		}
 	}
 	@media (max-width: 540px)

@@ -1,17 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Kelas;
-use App\Models\User;
+
 class AuthController extends Controller
 {
+
 	public function index()
 	{
 		return view('login');
 	}
+
 
 	public function admin()
 	{

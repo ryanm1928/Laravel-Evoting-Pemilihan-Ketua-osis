@@ -1,4 +1,8 @@
 <table class="table table-bordered table-hover">
+	@if($data->count() >= 37)
+	<caption>Tampilan data di batasi silahkan cari data di kolom pencarian </caption>
+	@else
+	@endif
 	<thead class="thead-dark">
 		<tr>
 			<th scope="col">No</th>
@@ -11,7 +15,6 @@
 		</tr>
 	</thead>
 	<tbody>
-
 		@foreach($data as $user)
 		<tr>
 			<td scope="row">{{$loop->iteration}}</td>
@@ -21,7 +24,7 @@
 
 			<!-- status -->
 			@if($user->voteuser->count() >= 1)
-			<td class=" h6 text-success table-success" >Sudah Voting <i class="fa fa-check-circle" aria-hidden="true"></i> </td>
+			<td class="h6 text-success table-success" >Sudah Voting <i class="fa fa-check-circle" aria-hidden="true"></i> </td>
 			@else
 			<td class=" h6 text-danger table-danger" >Belum Voting <i class="fa fa-window-close" aria-hidden="true"></i></td>
 			@endif

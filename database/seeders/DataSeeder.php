@@ -51,7 +51,7 @@ class DataSeeder extends Seeder
                 "kelas" => "X TEI 1"
             ],
             [
-                "kelas" => "X TEI 1"
+                "kelas" => "X TEI 2"
             ],
             [
                 "kelas" => "X RPL 1"
@@ -96,7 +96,7 @@ class DataSeeder extends Seeder
                 "kelas" => "XI TEI 1"
             ],
             [
-                "kelas" => "XI TEI 1"
+                "kelas" => "XI TEI 2"
             ],
             [
                 "kelas" => "XI RPL 1"
@@ -139,7 +139,7 @@ class DataSeeder extends Seeder
                 "kelas" => "XII TEI 1"
             ],
             [
-                "kelas" => "XII TEI 1"
+                "kelas" => "XII TEI 2"
             ],
             [
                 "kelas" => "XII RPL 1"
@@ -152,26 +152,18 @@ class DataSeeder extends Seeder
         ]);
 
 
-    	// DB::table('users')->insert([
+    	DB::table('users')->insert([
 
-     //        [
-     //            "name" => "admin",
-     //            'username' =>"MOHAMAD RIYAN",
-     //            "password" => bcrypt('evotingqwerty123456'),
-     //            "role" => "admin",
-     //            "kelas_id" => 1
+            [
+                "name" => "admin",
+                'username' =>"ADMIN E-VOTING",
+                "password" => bcrypt('evotingqwerty'),
+                "role" => "admin",
+                "kelas_id" => 43
 
-     //        ],
-     //        [
-     //            "name" => "195648",
-     //            'username' =>"KURNIA ARDIANSYAH",
-     //            "password" => bcrypt('12345'),
-     //            "role" => "user",
-     //            "kelas_id" => 1
+            ]
 
-     //        ]
-
-     //    ]);
+        ]);
 
     }
 }

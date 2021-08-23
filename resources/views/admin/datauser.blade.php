@@ -27,7 +27,6 @@
 <hr>
 
 <div id="datavoteuser"></div>
-
 <div class="table-responsive mt-2" id="table"></div>
 
 <div class="modal fade" id="modal-id-1">

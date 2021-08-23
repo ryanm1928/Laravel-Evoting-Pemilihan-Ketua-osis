@@ -2,16 +2,16 @@
 @section('title','Hasil Voting')
 @section('lihat','active-nav-item')
 @section('content')
-<div class="h3">Hasil Voting</div>
+<div class="h3" id="result-text">Hasil Voting</div>
+<center>
+	<div class="h3" id="result-text-print">Hasil Voting</div>
+</center>
 <hr>
 @if(session('status'))
 <div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 </div>
 @endif
-
-
-
 <div class="table-responsive" id="data" >
 	<table class="table table-bordered table-hover">
 		<caption>Made by MOHAMAD RIYAN</caption>
@@ -51,7 +51,7 @@
 					});
 					j = 0;
 				}
-			},1000);
+			},2000);
 
 
 		}

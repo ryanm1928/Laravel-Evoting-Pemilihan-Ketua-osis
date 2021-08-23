@@ -1,6 +1,9 @@
     /*
     DEMO STYLE
     */
+    #result-text-print{
+        display: none;
+    }
     .hilang{
         display: none;
     }
@@ -193,4 +196,26 @@
         .nav-bar{
             display: block;
         }
+    }
+    @media print {
+        #sidebar{
+            display: none;
+        }
+        .content{
+            box-shadow: 0 0rem 0rem rgb(0 0 0 / 0%) !important;
+
+        }
+        #content{
+            background-color: white;
+        }
+        #result-text{
+            display: none;
+        }
+        #result-text-print{
+            display: inline;
+        }
+        #kelas-header{
+            display: none;
+        }
+
     }

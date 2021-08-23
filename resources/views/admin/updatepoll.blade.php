@@ -47,7 +47,7 @@
 				<td>{{$choice->name}}</td>
 				<td><img src="{{asset($choice->sampul)}}" alt="" style="width: 70px;"></td>
 				<td>
-					<a href="/editchoice/{{$choice->id}}" class="btn btn-warning text-light"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+					<a href="/editchoice/{{$choice->id}}" class="btn-choice btn btn-warning text-light"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 				</td>
 			</tr>
 			@endforeach	
@@ -57,6 +57,7 @@
 <script type="text/javascript">
 	$('#form-edit-poll').on('submit',function(){
 		$('#btn-edit-poll').attr('disabled', 'true');
+		$('.btn-choice').attr('disabled', 'true');
 
 	});
 </script>

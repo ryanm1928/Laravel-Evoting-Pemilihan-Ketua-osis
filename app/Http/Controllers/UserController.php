@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use App\Exports\KelasExport;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\User;
 use App\Models\Kelas;
 use App\Models\Vote;
@@ -9,6 +12,54 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function kelas(Request $request)
+    {
+        $data = User::where('kelas_id',$request->kelas)->get();
+        $kelas = Kelas::all();
+        return view('admin.kelas',compact('data','kelas','request'));
+    }
+
+
+
+    public function importdata()
+    {
+        return view('admin.excel');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'data' => 'required|mimes:xlsx,doc,docx,ppt,pptx,ods,odt,odp'
+        ]);
+
+        $file = $request->file('data');
+
+        $namafile = $file->getClientOriginalName();
+        try {
+            $file->move('gambar',$namafile);
+            Excel::import(new UsersImport, \public_path('/gambar/'.$namafile));
+        } catch (\Exception $e) {
+            return back()->with('erorr','Gagal mengimport data silahkan cek file anda dan data yang anda masukan');
+        }
+
+
+        return redirect('/datauser')->with('status', 'Import data berhasil');
+
+    }      
+
+    public function fileexportuser()
+    {
+        return Storage::download('Exportfile/ImportUser.ods');
+    }
+
+    public function  unduh_data_kelas()
+    {
+        return Excel::download(new KelasExport, 'kelas.xlsx');
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +70,6 @@ class UserController extends Controller
 
         return view('admin.datauser');
     }
-
 
 
 
@@ -178,7 +228,7 @@ class UserController extends Controller
         public function userdata()
         {
 
-            $data = User::all();
+            $data = User::paginate(37);
             return view('admin.userdata.userdata',compact('data'));
         }
 
@@ -188,5 +238,7 @@ class UserController extends Controller
          $datapemilih = User::where('id','>',0)->count();
          return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
      }
+
+
 
  }

@@ -9,7 +9,8 @@ use App\Models\Photo;
 use App\Models\Choice;
 use App\Models\Mail;
 use App\Models\Reply;
-
+use App\Models\User;
+use App\Models\Vote;
 
 class PollController extends Controller
 {
@@ -230,13 +231,15 @@ class PollController extends Controller
 
   public function result($id)
   {
+    $vote = Vote::all()->count();
+    $datapemilih = User::where('id','>',0)->count();
     $data  = Poll::where('id',$id)->with('choice.vote')->first();
     $jml = 0;
     foreach($data->choice as $ch) {
       $jml += $ch->vote->count();
     }
 
-    return view('admin.result',['data' => $data,'jml' => $jml]);
+    return view('admin.result',['data' => $data,'jml' => $jml,'vote' => $vote, 'datapemilih' => $datapemilih]);
 
   }
 

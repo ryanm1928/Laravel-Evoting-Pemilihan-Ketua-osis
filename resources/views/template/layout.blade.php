@@ -41,6 +41,9 @@
             <li  class="@yield('datauser')" >
                 <a class="" href="/datauser">  <i class="fa fa-bar-chart" aria-hidden="true"></i> Statistik Pengguna</a>
             </li>
+            <li  class="@yield('kelas')" >
+                <a class="" href="/datasiswa"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Data Siswa</a>
+            </li>
             <li  class="@yield('tambah')" >
                 <a class="" href="/manageuser"> <i class="fa fa-user-plus" aria-hidden="true"></i> Tambah Pengguna</a>
             </li>

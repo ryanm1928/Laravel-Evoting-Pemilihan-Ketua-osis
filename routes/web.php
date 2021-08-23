@@ -20,7 +20,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/',[AuthController::class,'index']);
 Route::post('/login',[AuthController::class,'actionlogin']);
-// Route::get('/hash',[AuthController::class,'acaksandi']);
 
 //admin
 Route::group(['middleware'=>['Authprotected']],function(){
@@ -60,6 +59,15 @@ Route::group(['middleware'=>['Authprotected']],function(){
 	Route::get('voteusercheck',[UserController::class,'uservote']);
 	Route::get('voteusertimes',[UserController::class,'uservotetimes']);
 	Route::get('datavoteuser',[UserController::class,'datavoteuser']);
+
+	Route::get('/importdata',[UserController::class,'importdata']);
+	Route::post('/import',[UserController::class,'import']);
+	Route::get('/unduh_file_users',[UserController::class,'fileexportuser']);
+	Route::get('/unduh_data_kelas',[UserController::class,'unduh_data_kelas']);
+
+
+	Route::get('/datasiswa',[UserController::class,'kelas']);
+	// Route::post('/kelas',[UserController::class,'cariuser_kelas']);
 	
 });
 

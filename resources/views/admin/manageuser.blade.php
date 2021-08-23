@@ -3,7 +3,16 @@
 @section('tambah','active-nav-item')
 @section('content')
 
-<div class="h3">Tambah Pengguna</div>
+<div class="mb-0 mt-0">
+	<div class="row">
+		<div class="col-sm-10">
+			<div class="h3">Tambah Pengguna</div>
+		</div>
+		<div class="col-sm-2">
+			<a href="/importdata" class="btn btn-primary mb-2 w-100"><i class="fa fa-upload" aria-hidden="true"></i> ImportData</a>
+		</div>
+	</div>
+</div>
 <hr>
 <form action="/datauser" method="post" id="form-user">
 	@csrf
