@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
 	<div class="row" id="kelas-header">
-		<div class="col-sm-6 mb-2">
+		<div class="col-sm-6 mb-2 mt-2">
 			<button class="btn btn-primary">Tambah Kelas</button>
 		</div>
 		<div class="col-sm-6 mb-3">
@@ -42,6 +42,9 @@
 						</td>
 					</tr>
 					@else
+					@if($data->count() == 0)
+					<td class="text-muted">Data kosong</td>
+					@endif
 					@foreach($data as $class)
 					<tr>
 						<th scope="row">{{ $loop->iteration }}</th>

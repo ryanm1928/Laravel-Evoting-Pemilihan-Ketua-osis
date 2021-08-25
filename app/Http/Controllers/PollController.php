@@ -232,7 +232,7 @@ class PollController extends Controller
   public function result($id)
   {
     $vote = Vote::all()->count();
-    $datapemilih = User::where('id','>',0)->count();
+    $datapemilih = User::where('role','user')->count();
     $data  = Poll::where('id',$id)->with('choice.vote')->first();
     $jml = 0;
     foreach($data->choice as $ch) {

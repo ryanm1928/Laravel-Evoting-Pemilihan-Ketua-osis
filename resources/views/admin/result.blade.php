@@ -6,6 +6,9 @@
 					<div class="h3"> {{$datapemilih}}</div>
 					Pengguna
 				</div>
+				<div class="col-sm-3 mt-3">
+					<div class="h3">100%</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -14,7 +17,10 @@
 			<div class="row">
 				<div class="col-sm-7">
 					<div class="h3"> {{$vote}}</div>
-					Sudah Voting
+					Sudah Voting 
+				</div>
+				<div class="col-sm-3 mt-3">
+					<div class="h3">{{ round($vote / $datapemilih * 100,2) }}%</div>
 				</div>
 			</div>
 		</div>
@@ -23,8 +29,11 @@
 		<div class="bg-danger text-light p-2" shadow>
 			<div class="row">
 				<div class="col-sm-7">
-					<div class="h3"> {{$datapemilih - $vote}}</div>
-					Belum Voting
+					<div class="h3"> {{$bv =  $datapemilih - $vote}}</div>
+					Belum Voting 
+				</div>
+				<div class="col-sm-3 mt-3">
+					<div class="h3">{{ round($bv / $datapemilih * 100,2) }}%</div>
 				</div>
 			</div>
 		</div>
@@ -46,11 +55,12 @@
 			@foreach($data->choice as $item)
 			<tr>
 				<td>{{$loop->iteration}}</td>
-				<td><img src="{{asset($item->sampul)}}" alt="" width="120px"></td>
+				<td><img src="{{asset($item->sampul)}}" alt="" width="200"></td>
 				<td class="h5">{{$item->name}}</td>
 				<td class="h5"><li class="fa fa-users"></li> {{$item->vote->count()}}</td>
-				@if($data->vote->count())
-				
+				@if($data->vote->count() == 0)
+				<td class="h5">0%</td>
+				@else
 				<td class="h5" width="130px">{{round($item->vote->count() / $datapemilih * 100,2)}}%</td>
 				@endif
 			</tr>

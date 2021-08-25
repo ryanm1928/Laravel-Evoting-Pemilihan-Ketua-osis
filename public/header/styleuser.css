@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+#icon{
+	margin-top: 50px;
+}
+#title{
+	font-family: 'Bree Serif', serif;
+}
+
+@media (max-width: 991px) {
+	.user-content{
+		margin: 7px;
+	}
+	#icon{
+		margin-top: 5px;
+	}
+	#img-none{
+		display: none;
+	}
+	#card-paslon
+	{
+		margin-left: 4rem;
+	}
+
+}
+
+#btn-voting:hover{
+	color: white;
+	text-decoration: underline;
+
+}
+#user-icon{
+	font-size: 120px;
+}
+
+@media(max-width:575px )
+{
+	#user-icon{
+		margin-top: 0;
+		font-size: 80px;
+	}
+	#card-paslon
+	{
+		margin-left: 1rem;
+	}
+}
+@media(max-width: 428px)
+{
+	#card-paslon
+	{
+		margin-left: 3.2rem;
+	}
+}
+@media(max-width: 390px)
+{
+	#card-paslon
+	{
+		margin-left: 2.5rem;
+	}
+}
+@media(max-width: 375px)
+{
+	#card-paslon
+	{
+		margin-left: 1.8rem;
+	}
+}
+@media(max-width: 320px)
+{
+	#card-paslon
+	{
+		margin-left: 0rem;
+	}
+}

@@ -11,11 +11,11 @@
 @else
 <form action="" method="get" class="" id="form-jumlah">
 	<div class="row">
-		<div class="col-sm-10">
+		<div class="col-lg-10">
 			<label for="Jumlah">Masukan Jumlah Pilihan:</label>
 			<input type="number" value="{{$_GET['jumlah'] ?? '' }}" min="2" max="6" name="jumlah" class="form-control" id="jumlah" required="" step="">
 		</div>
-		<div class="col-sm-2" style="margin-top: 31px">
+		<div class="col-lg-2" style="margin-top: 31px">
 			<button id="btn-jumlah" type="submit" class="btn btn-success shadow" style="width: 130px"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
 		</div>
 	</div>
@@ -73,13 +73,13 @@
 					<label for="text"  class="text-dark mt-2">Masukan misi:</label>
 					<input type="text" name="misi[]" placeholder="Masukan misi..." class="form-control">
 					<div class="row mt-4">
-						<div class="col-sm-8">
+						<div class="col-lg-8 mb-2">
 							<div class="custom-file">
 								<label  id="namafile" for="sampul" class="text-dark">Sampul:</label>
 								<input type="file" id="file-{{$i}}" accept="image/*" name="gambar[]" required="">
 							</div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-lg-4">
 							<label for="file-{{$i}}" id="file-{{$i}}-preview">
 								<img src="{{asset('gambar/deafult.png')}}" alt="" width="120px">
 								<div style="font-size:10px; font-style: italic;">

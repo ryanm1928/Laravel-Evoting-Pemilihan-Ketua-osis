@@ -211,7 +211,7 @@ class UserController extends Controller
 
         public function uservote()
         {
-            $data = User::all();
+            $data = User::where('role','user')->get();
 
             return view('admin.userdata.usercheck',compact('data'));
 
@@ -219,7 +219,7 @@ class UserController extends Controller
 
         public function uservotetimes()
         {
-            $data = User::all();
+            $data = User::where('role','user')->get();
 
             return view('admin.userdata.usertimes',compact('data'));
 
@@ -235,7 +235,7 @@ class UserController extends Controller
         public function datavoteuser()
         {
          $vote = Vote::all()->count();
-         $datapemilih = User::where('id','>',0)->count();
+         $datapemilih = User::where('role','user')->count();
          return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
      }
 

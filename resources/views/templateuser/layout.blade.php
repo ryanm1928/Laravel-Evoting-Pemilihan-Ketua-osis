@@ -7,50 +7,8 @@
 	<title>@yield('title')</title>
 	<script src="/js/jquery.js"></script>
 	<script type="/js/jquery-slim.js"></script>
+	<link rel="stylesheet" href="/header/styleuser.css">
 	<link rel="stylesheet" href="/icon/css/font-awesome.min.css">
-	<style>
-	#icon{
-		margin-top: 50px;
-	}
-	@media (max-width: 768px) {
-		.user-content{
-			margin: 7px;
-		}
-		#icon{
-			margin-top: 5px;
-		}
-		#img-none{
-			display: none;
-		}
-
-	}
-
-	#paslon:hover{
-		background-color: #007bff;
-		color: white;
-	}
-	#btn-voting:hover{
-		color: white;
-		text-decoration: underline;
-
-	}
-	#user-icon{
-		font-size: 120px;
-	}
-
-	
-	
-
-	@media(max-width:575px )
-	{
-		
-		#user-icon{
-			margin-top: 0;
-			font-size: 80px;
-		}
-	}
-	
-</style>
 </head>
 <body>
 
