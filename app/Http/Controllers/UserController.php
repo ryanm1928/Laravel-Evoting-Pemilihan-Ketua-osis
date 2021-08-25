@@ -50,7 +50,7 @@ class UserController extends Controller
 
     public function fileexportuser()
     {
-        return Storage::download('Exportfile/ImportUser.ods');
+        return Storage::download('gambar/ImportUser.ods');
     }
 
     public function  unduh_data_kelas()
@@ -165,15 +165,15 @@ class UserController extends Controller
 
             if($request->password == null)
             {
-               $data = User::where('id',$user->id)
-               ->update([
-                   'name' => $request->nama,
-                   'username' => $request->username,
-                   'password' => $user->password
+             $data = User::where('id',$user->id)
+             ->update([
+                 'name' => $request->nama,
+                 'username' => $request->username,
+                 'password' => $user->password
 
-               ]);
+             ]);
 
-           }else{
+         }else{
 
             $data = User::where('id',$user->id)
             ->update([
@@ -234,11 +234,11 @@ class UserController extends Controller
 
         public function datavoteuser()
         {
-         $vote = Vote::all()->count();
-         $datapemilih = User::where('role','user')->count();
-         return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
-     }
+           $vote = Vote::all()->count();
+           $datapemilih = User::where('role','user')->count();
+           return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
+       }
 
 
 
- }
+   }
