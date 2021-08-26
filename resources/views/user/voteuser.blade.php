@@ -9,8 +9,8 @@
 		<div class="h4 mb-3">{{$data->name}}</div>
 		<img src="{{asset($data->sampul)}}" alt="" class="shadow mb-2 w-75">
 		<input type="hidden" value="{{$data->id}}" name="userchoice">
-		<div class="mb-1" align="center"><span class="h6">VISI:</span> {{$data->visi}}</div>
-		<div class="" align="center"><span class="h6">MISI:</span> {{$data->misi}}</div>
+		<div class="mb-1" align="center"><span class="h6">VISI <li class="fa fa-caret-right"></li></span> {{$data->visi}}</div>
+		<div class="" align="center"><span class="h6">MISI <li class="fa fa-caret-right"></li></span> {{$data->misi}}</div>
 		<div class="modal-footer mt-3 mr-auto">
 			<button id="btn-kembali" type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
 			<button type="submit" class="btn btn-primary" style="width: 120px" id="btn-vote">Pilih</button>

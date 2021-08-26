@@ -183,7 +183,7 @@
     MEDIAQUERIES
     ----------------------------------------------------- */
 
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
         #sidebar {
             margin-left: -250px;
         }
@@ -198,7 +198,7 @@
         }
     }
     @media print {
-        #sidebar{
+        #sidebar ,.navbar-toggle{
             display: none;
         }
         .content{

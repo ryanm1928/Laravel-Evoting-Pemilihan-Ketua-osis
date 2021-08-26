@@ -15,8 +15,8 @@
 			<label for="Jumlah">Masukan Jumlah Pilihan:</label>
 			<input type="number" value="{{$_GET['jumlah'] ?? '' }}" min="2" max="6" name="jumlah" class="form-control" id="jumlah" required="" step="">
 		</div>
-		<div class="col-lg-2" style="margin-top: 31px">
-			<button id="btn-jumlah" type="submit" class="btn btn-success shadow" style="width: 130px"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
+		<div class="col-lg-2" style="margin-top: 2rem">
+			<button id="btn-jumlah" type="submit" class="btn btn-success shadow w-100"><i class="fa fa-save" aria-hidden="true"></i> Submit</button>
 		</div>
 	</div>
 </form>

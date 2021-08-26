@@ -4,19 +4,25 @@
 @section('content')
 <div class="container">
 	<div class="row" id="kelas-header">
-		<div class="col-sm-6 mb-2 mt-2">
+		<div class="col-lg-6 mb-2 mt-2">
 			<a href="/kelas" class="btn btn-primary">Tambah Kelas</a>
 		</div>
-		<div class="col-sm-6 mb-3">
+		<div class="col-lg-6 mb-3">
 			<form action="" method="get" id="form-kelas">
 				@csrf
-				<select name="kelas" id="" class="form-control  w-75 d-inline my-2">
-					<option value="" selected="">- - -</option>
-					@foreach($kelas as $datakelas)
-					<option value="{{ $datakelas->id }}">{{ $datakelas->kelas }}</option>
-					@endforeach
-				</select>
-				<button id="btn-kelas" class="btn btn-primary" type="submit"><li class="fa fa-search"></li> Cari</button>
+				<div class="row">
+					<div  class="col-lg-8">
+						<select name="kelas" id="" class="form-control  w-100 d-inline my-2">
+							<option value="" selected="">- - -</option>
+							@foreach($kelas as $datakelas)
+							<option value="{{ $datakelas->id }}">{{ $datakelas->kelas }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="col-lg-4 mt-2">
+						<button id="btn-kelas" class="btn btn-primary w-100" type="submit"><li class="fa fa-search"></li> Cari</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

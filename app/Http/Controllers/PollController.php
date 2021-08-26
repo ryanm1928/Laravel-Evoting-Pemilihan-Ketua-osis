@@ -247,7 +247,7 @@ class PollController extends Controller
   {
     $cek = Reply::where('id_pesan',">" ,0)->get();
 
-    $mail = Mail::all();
+    $mail = Mail::with('user')->get();
 
     return view('admin.mail',compact('mail','cek'));
 
@@ -255,7 +255,7 @@ class PollController extends Controller
 
   public function reply($id)
   {
-    $mail = Mail::find($id);
+    $mail = Mail::with('user')->find($id);
     return view('admin.balas',compact('mail'));
 
   }

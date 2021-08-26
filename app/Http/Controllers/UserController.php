@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function kelas(Request $request)
     {
-        $data = User::where('kelas_id',$request->kelas)->get();
+        $data = User::with(['voteuser','userkelas'])->where('kelas_id',$request->kelas)->get();
         $kelas = Kelas::all();
         return view('admin.kelas',compact('data','kelas','request'));
     }
@@ -165,15 +165,15 @@ class UserController extends Controller
 
             if($request->password == null)
             {
-             $data = User::where('id',$user->id)
-             ->update([
-                 'name' => $request->nama,
-                 'username' => $request->username,
-                 'password' => $user->password
+               $data = User::where('id',$user->id)
+               ->update([
+                   'name' => $request->nama,
+                   'username' => $request->username,
+                   'password' => $user->password
 
-             ]);
+               ]);
 
-         }else{
+           }else{
 
             $data = User::where('id',$user->id)
             ->update([
@@ -203,7 +203,7 @@ class UserController extends Controller
         public function cari(Request $request)
         {
 
-            $data = User::where('username' , 'like' ,'%'.$request->cari.'%')->get();
+            $data = User::with(['voteuser','userkelas'])->where('username' , 'like' ,'%'.$request->cari.'%')->get();
             return view('admin.userdata.userdata',compact('data','request'));
         }
 
@@ -211,7 +211,7 @@ class UserController extends Controller
 
         public function uservote()
         {
-            $data = User::where('role','user')->get();
+            $data = User::with('voteuser','userkelas')->where('role','user')->get();
 
             return view('admin.userdata.usercheck',compact('data'));
 
@@ -219,7 +219,7 @@ class UserController extends Controller
 
         public function uservotetimes()
         {
-            $data = User::where('role','user')->get();
+            $data = User::with(['voteuser','userkelas'])->where('role','user')->get();
 
             return view('admin.userdata.usertimes',compact('data'));
 
@@ -228,17 +228,17 @@ class UserController extends Controller
         public function userdata()
         {
 
-            $data = User::paginate(37);
+            $data = User::with(['voteuser','userkelas'])->paginate(37);
             return view('admin.userdata.userdata',compact('data'));
         }
 
         public function datavoteuser()
         {
-           $vote = Vote::all()->count();
-           $datapemilih = User::where('role','user')->count();
-           return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
-       }
+         $vote = Vote::all()->count();
+         $datapemilih = User::where('role','user')->count();
+         return view('admin.userdata.datavoteuser',compact('datapemilih','vote'));
+     }
 
 
 
-   }
+ }
