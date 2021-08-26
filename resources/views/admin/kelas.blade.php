@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="row" id="kelas-header">
 		<div class="col-sm-6 mb-2 mt-2">
-			<button class="btn btn-primary">Tambah Kelas</button>
+			<a href="/kelas" class="btn btn-primary">Tambah Kelas</a>
 		</div>
 		<div class="col-sm-6 mb-3">
 			<form action="" method="get" id="form-kelas">

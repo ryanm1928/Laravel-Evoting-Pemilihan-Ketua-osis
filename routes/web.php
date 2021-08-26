@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AuthController,PollController};
+use App\Http\Controllers\{AuthController, KelasController, PollController};
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 /*
@@ -67,7 +67,8 @@ Route::group(['middleware'=>['Authprotected']],function(){
 
 
 	Route::get('/datasiswa',[UserController::class,'kelas']);
-	// Route::post('/kelas',[UserController::class,'cariuser_kelas']);
+	//route kelas
+	Route::get('/kelas',[KelasController::class,'index']);
 	
 });
 
