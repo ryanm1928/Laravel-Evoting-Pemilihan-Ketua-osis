@@ -67,8 +67,12 @@ Route::group(['middleware'=>['Authprotected']],function(){
 
 
 	Route::get('/datasiswa',[UserController::class,'kelas']);
-	//route kelas
-	Route::get('/kelas',[KelasController::class,'index']);
+
+	
+	//kelas
+	Route::resource('kelas',KelasController::class);
+
+	Route::delete('kelas',[KelasController::class,'deletekelas']);
 	
 });
 

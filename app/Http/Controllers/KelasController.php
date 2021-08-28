@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use Illuminate\Http\Request;
+// use Request;
 
 class KelasController extends Controller
 {
@@ -12,6 +13,18 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function deletekelas(Request $request)
+    {
+
+        foreach($request->cekkelas as $hapuskelas)
+        {
+            Kelas::where('id',$hapuskelas)->delete();
+        }
+
+        return redirect('kelas')->with('delete','Data Berhasil di hapus');
+
+    }
     public function index()
     {
         $kelas = Kelas::paginate(7);
@@ -37,7 +50,15 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kelas' => 'required'
+        ]);
+        foreach($request->kelas as $datakelas){
+            $kelas = new Kelas;
+            $kelas->kelas = $datakelas;
+            $kelas->save();
+        }
+        return redirect('/kelas')->with('status','Data Kelas berhasil di tambahkan');
     }
 
     /**

@@ -247,7 +247,7 @@ class PollController extends Controller
   {
     $cek = Reply::where('id_pesan',">" ,0)->get();
 
-    $mail = Mail::with('user')->get();
+    $mail = Mail::with('user')->latest()->get();
 
     return view('admin.mail',compact('mail','cek'));
 

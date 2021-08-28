@@ -41,11 +41,14 @@
             <li  class="@yield('datauser')" >
                 <a class="" href="/datauser">  <i class="fa fa-bar-chart" aria-hidden="true"></i> Statistik Pengguna</a>
             </li>
-            <li  class="@yield('kelas')" >
-                <a class="" href="/datasiswa"> <i class="fa fa-graduation-cap" aria-hidden="true"></i></i> Data Siswa</a>
-            </li>
             <li  class="@yield('tambah')" >
                 <a class="" href="/manageuser"> <i class="fa fa-user-plus" aria-hidden="true"></i> Tambah Pengguna</a>
+            </li>
+            <li  class="@yield('managekelas')" >
+                <a class="" href="{{ route('kelas.index') }}"> <i class="fa fa-university" aria-hidden="true"></i></i> Data Kelas</a>
+            </li>
+            <li  class="@yield('kelas')" >
+                <a class="" href="/datasiswa"> <i class="fa fa-users" aria-hidden="true"></i></i> Data Pengguna</a>
             </li>
             <li  class="@yield('pesan')" >
                 <a class="" href="/mails">   <i class="fa fa-envelope" aria-hidden="true"></i> Pesan</a>
@@ -56,8 +59,10 @@
             <li>
                 <a class="" href="/logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             </li>
-
         </ul>
+        <div>
+            <div class="fs-5 mx-2">Evoting ©{{ date('Y') }}</div>
+        </div>
     </nav>
 
     <!-- Page Content  -->

@@ -21,7 +21,7 @@
 		<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cari" id="cari" placeholder="Search..">
 	</div>
 	<div class="col-sm-2">
-		<button id="btn-cari" class="btn btn-primary w-100"><li class="fa fa-search"></li> Cari</button>
+		<button id="btn-cari" class="btn btn-info w-100"><li class="fa fa-search"></li> Cari</button>
 	</div>
 </div>
 <hr>
