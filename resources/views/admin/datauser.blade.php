@@ -44,8 +44,6 @@
 	</div>
 </div>
 
-
-
 <div class="modal fade" id="modal-id-2">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -99,7 +97,7 @@
 	{
 		$.ajax({
 			type : "get",
-			url : "{{url('cari')}}",
+			url : "{{url('userdata')}}",
 			data : "cari= " + $('#cari').val(),
 			success :function(data){
 

@@ -2,20 +2,6 @@
 @section('title','Manage Kelas')
 @section('managekelas','active-nav-item')
 @section('content')
-<style>
-.w-5{
-    display: none;
-}
-div span .relative{
-    display: none;
-}
-div p {
-    /* display: none; */
-}
-.btn-modal{
-    cursor: not-allowed;
-}
-</style>
 
 @if(session('status'))
 <div class="alert alert-success"><li class="fa fa-check-circle"></li> {{ session('status') }}
@@ -23,7 +9,7 @@ div p {
 </div>
 @endif
 @if(session('delete'))
-<div class="alert alert-success"><li class="fa fa-check-circle"></li> {{ session('delete') }}
+<div class="alert alert-danger"><li class="fa fa-check-circle"></li> {{ session('delete') }}
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 </div>
 @endif
@@ -44,8 +30,8 @@ div p {
         <form action="{{ route('kelas.store') }}" method="post">
             @csrf
             <div class="row">
-             @for($i = 0; $i < $_GET['jumlah'];$i++)
-             <div class="col-sm-6 mt-4">
+               @for($i = 0; $i < $_GET['jumlah'];$i++)
+               <div class="col-sm-6 mt-4">
                 <input class="form-control" required type="text" name="kelas[]" placeholder="Masukan kelas">
             </div>
             @endfor
@@ -73,16 +59,20 @@ div p {
                         <div class="modal fade" id="modal-id">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Modal title</h4>
+                                    <div class="modal-header bg-danger">
+                                        <h4 class="modal-title text-white">Peringatan</h4>
+                                        <button type="button" class="close text-light" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     </div>
                                     <div class="modal-body">
-
+                                        <div class="alert alert-danger" align="center">Anda yakin ingin menghapus:</div>
+                                        <div class="" align="center">
+                                            <li class="fa fa-5x fa-exclamation-triangle text-danger mb-4 mt-2"></li><br>
+                                            <div>Jika data kelas di hapus maka data siswa juga akan ikut terhapus</div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger"><li class="fa fa-trash"></li>Hapus kelas</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger"><li class="fa fa-trash"></li> Hapus kelas</button>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +95,9 @@ div p {
             </tbody>
         </table>
     </form>
-    {{ $kelas->links() }}
+    <div class="d-flex justify-content-center">
+        {{ $kelas->links() }}
+    </div>
 </div>
 </div>
 

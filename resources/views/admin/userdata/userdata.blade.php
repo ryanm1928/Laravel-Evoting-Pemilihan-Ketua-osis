@@ -14,6 +14,7 @@
 
 		</tr>
 	</thead>
+	@if($data->count())
 	<tbody>
 		@foreach($data as $user)
 		<tr>
@@ -55,6 +56,9 @@
 		</tr>
 		@endforeach
 	</tbody>
+	@else
+	<caption>Data Tidak di temukan</caption>
+	@endif
 </table>
 
 

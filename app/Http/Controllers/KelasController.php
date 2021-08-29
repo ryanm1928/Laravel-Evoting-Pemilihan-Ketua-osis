@@ -27,7 +27,7 @@ class KelasController extends Controller
     }
     public function index()
     {
-        $kelas = Kelas::paginate(7);
+        $kelas = Kelas::paginate(7)->withQueryString();
 
         return view('admin.managekelas', compact('kelas'));
     }

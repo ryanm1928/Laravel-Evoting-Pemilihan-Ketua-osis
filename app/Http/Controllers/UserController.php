@@ -199,16 +199,6 @@ class UserController extends Controller
 
         }
 
-
-        public function cari(Request $request)
-        {
-
-            $data = User::with(['voteuser','userkelas'])->where('username' , 'like' ,'%'.$request->cari.'%')->get();
-            return view('admin.userdata.userdata',compact('data','request'));
-        }
-
-
-
         public function uservote()
         {
             $data = User::with('voteuser','userkelas')->where('role','user')->get();
@@ -225,10 +215,16 @@ class UserController extends Controller
 
         }
 
-        public function userdata()
+        public function userdata(Request $request)
         {
 
             $data = User::with(['voteuser','userkelas'])->paginate(37);
+
+            if($request->cari)
+            {
+                $data = User::with(['voteuser','userkelas'])->where('username' , 'like' ,'%'.$request->cari.'%')->get();
+
+            }
             return view('admin.userdata.userdata',compact('data'));
         }
 

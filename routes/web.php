@@ -50,7 +50,6 @@ Route::group(['middleware'=>['Authprotected']],function(){
 
 	//Route serach
 	Route::get('/userdata',[UserController::class,'userdata']);
-	Route::get('/cari',[UserController::class,'cari']);
 
 	//ajax Route Hapus
 	Route::get('/polldelete/{id}',[PollController::class,'polldelete']);
