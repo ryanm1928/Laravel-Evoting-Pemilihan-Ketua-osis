@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Poll;
-use App\Models\Photo;
 use App\Models\Choice;
 use App\Models\Mail;
 use App\Models\Reply;
@@ -215,33 +214,39 @@ class PollController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(poll $poll)
+    public function destroy(Poll $poll)
     {
-     $poll = Poll::destroy($poll->id);
+    
+      $sampul = Choice::where('poll_id',$poll->id)->get();
+      foreach($sampul as $data)
+      {
+        unlink($data->sampul);
+      }
+      Poll::destroy($poll->id);
 
      return redirect('admin')->with('delete','Data telah berhasil di hapus');
-   }
+    }
 
    //vote
    public function resultvote()
    {
-    $poll = Poll::all();
-    return view('admin.resultvote',['poll' => $poll]);
-  }
+      $poll = Poll::all();
+      return view('admin.resultvote',['poll' => $poll]);
+   }
 
-  public function result($id)
-  {
-    $vote = Vote::all()->count();
-    $datapemilih = User::where('role','user')->count();
-    $data  = Poll::where('id',$id)->with('choice.vote')->first();
-    $jml = 0;
-    foreach($data->choice as $ch) {
-      $jml += $ch->vote->count();
+    public function result($id)
+    {
+          $vote = Vote::all()->count();
+          $datapemilih = User::where('role','user')->count();
+          $data  = Poll::where('id',$id)->with('choice.vote')->first();
+          $jml = 0;
+          foreach($data->choice as $ch) {
+            $jml += $ch->vote->count();
+          }
+
+          return view('admin.result',['data' => $data,'jml' => $jml,'vote' => $vote, 'datapemilih' => $datapemilih]);
+
     }
-
-    return view('admin.result',['data' => $data,'jml' => $jml,'vote' => $vote, 'datapemilih' => $datapemilih]);
-
-  }
 
   public function mails()
   {

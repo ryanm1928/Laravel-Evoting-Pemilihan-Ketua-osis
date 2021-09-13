@@ -13,14 +13,15 @@
 		<div class="" align="center"><span class="h6">MISI <li class="fa fa-caret-right"></li></span> {{$data->misi}}</div>
 		<div class="modal-footer mt-3 mr-auto">
 			<button id="btn-kembali" type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-			<button type="submit" class="btn btn-primary" style="width: 120px" id="btn-vote">Pilih</button>
+			<button type="submit" id="pilih" class="btn btn-primary" style="width:120px">Pilih</button>
 		</div>
 	</form>
 </center>
 @endforeach
+
 <script type="text/javascript">
 	$('#form-vote').on('submit',function(){
-		$('#btn-vote').attr('disabled', 'true');
+		$('#pilih').attr('disabled', 'true');
 		$('#btn-kembali').css('display', 'none');
 
 	});

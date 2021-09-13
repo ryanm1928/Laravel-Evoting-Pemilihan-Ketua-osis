@@ -131,11 +131,6 @@
 		});
 
 
-		$('#login-form').on('submit',function(){
-			$('#btn-login').attr('disabled', 'true');
-
-		});
-
 		$('#gantisandi-form').on('submit',function(){
 			$('#btn-ganti').attr('disabled', 'true');
 			$('#cancel').css('display', 'none');
