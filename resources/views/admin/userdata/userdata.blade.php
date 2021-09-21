@@ -40,7 +40,7 @@
 				<form action="datauser/{{$user->id}}" method="post" class="d-inline"> 
 					@csrf
 					@method('delete')
-					<button type="submit" class="btn btn-outline-danger mb-2" data-placement="right" title="Hapus"><i class="fa fa-trash" aria-hidden="true"></i>
+					<button onclick="return confirm('Apakah anda yakin ingin mengahapus data {{ $user->username }} ')" type="submit" class="btn btn-outline-danger mb-2" data-placement="right" title="Hapus"><i class="fa fa-trash" aria-hidden="true"></i>
 					</button>
 				</form>
 
