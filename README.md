@@ -1,33 +1,28 @@
-how to use this application: <br>
-*open the terminal that points to this application folder  <br>
-*then run the command below:  <br>
+<h2>Cara menjalankan aplikasi ini</h2>
+	<ul>
+		<li>Duplicate file <strong>.env.example</strong></li>
+		<li>Setelah di duplicate,ubah file yang di duplicate menjadi .env</li>
+		<li>Setelah itu buka terminal yang mengarah ke folder aplikasi ini</li>
+		<li>Lalu jalan kan perintah <strong>composer install</strong></li>
+		<li>Setelah selesai jalan kan perintah <strong>php artisan key:generate</strong></li>
+		<li>Lalu jalankan perintah  <strong> php artisan config:cache</strong> </li>
+		<div>------------------SETUP DATABASE------------------</div>
+		<li>Buat dulu database nya</li>
+		<li>Lalu buka file .env di text editor</li>
+		<li>Pada code DB_DATABASE=*isikan nama database yang telah di buat</li>
+		<li>Lalu buka terminal kembali lakukan perintah <strong>php artisan migrate</strong> untuk menambahkan table ke database</li>
+		<li>Setelah selesai lakukan perintah <strong>php artisan db:seed --class=DataSeeder</strong>  untuk memasukan data user</li>
+		<li>Terahir lakukan perintah <strong>php artisan serve</strong> </li>
+		<li><strong>http://127.0.0.1:8000</strong>  buka url di samping di web browser</li>
+		<div>------------------------Login------------------------</div>
+		<strong>username: admin <br> password: evotingqwerty</strong>
 
-<h3>
--composer install <br>
--ubah file .env-exmpale menjadi .env <br>
--php artisan key:generate <br>
- -php artisan config:cache  <br>
--php artisan migrate  <br>
--php artisan db:seed --class=DataSeeder<br>
-</h3>
-
-<h6 style="text-decoration: underline;">
-*if the asset image in this application does not appear  <br>
-php artisan storage command path: link  <br>
-</h6>
-
-then the last php artisan: serve  <br>
-
-
-
-
-
-
-
-
-
-
-
+		<div>
+			*jika gambar asset di aplikasi ini tidak muncul
+			lakukan perintah ini pada terminal
+			<strong>php artisan storage:link</strong>
+		</div>
+	</ul>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
