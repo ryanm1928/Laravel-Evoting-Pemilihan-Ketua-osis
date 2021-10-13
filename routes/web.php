@@ -86,7 +86,7 @@ Route::group(['middleware' => ['Userprotected']],function(){
 });
 
 Route::post('/gantisandi',[MainController::class,'updatepassword']);
-Route::get('/logout',[AuthController::class,'logout']);
+Route::post('/logout',[AuthController::class,'logout']);
 
 
 

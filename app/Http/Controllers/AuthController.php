@@ -82,10 +82,12 @@ class AuthController extends Controller
 		if(Auth::attempt(['name' => $data->name,'password' => $data->password]))
 		{
 			if (auth()->user()->role == 'admin') {
-				return redirect('/admin');
+				$request->session()->regenerate();
+				return redirect()->intended('/admin');
 
 			}else{
-				return redirect('/user');
+				$request->session()->regenerate();
+				return redirect()->intended('/user');
 			}
 		}else{
 			return redirect('/')->with('status','Login gagal harap masukan Id dan password yang benar ');
@@ -95,6 +97,8 @@ class AuthController extends Controller
 	public function  logout()
 	{
 		Auth::logout();
+		request()->session()->invalidate();
+		request()->session()->regenerateToken();
 		return redirect('/');
 
 	}

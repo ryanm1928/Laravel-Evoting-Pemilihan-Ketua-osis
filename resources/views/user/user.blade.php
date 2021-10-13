@@ -13,7 +13,7 @@
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 </div>
 @else
-<marquee class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Voting akan hilang jika batas waktu telah berahir / admin mengahapus data voting</marquee>
+	<marquee class="alert alert-warning"><li class="fa fa-exclamation-triangle"></li> Voting akan hilang jika batas waktu telah berahir / admin mengahapus data voting</marquee>
 @endif
 
 @foreach($poll as $data)

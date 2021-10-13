@@ -31,7 +31,12 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/user-mails">Kirim pesan ke admin</a>
-						<a class="dropdown-item" href="/logout">Log out</a>	
+						<form action="/logout" method="post">
+                    	@csrf
+                        <button class="dropdown-item" id="btn-logout" type="submit" style="background-color: transparent;border: none;">
+                            <i class="fa fa-sign-out text-left" aria-hidden="true"></i> Logout
+                       </button>
+                </form>
 					</div>
 				</div>
 			</div>

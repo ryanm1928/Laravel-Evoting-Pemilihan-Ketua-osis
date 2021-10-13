@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+button:focus{
+	outline: none;
+}
 #icon{
 	margin-top: 50px;
 }

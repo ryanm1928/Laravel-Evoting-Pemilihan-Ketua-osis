@@ -57,7 +57,12 @@
                 <a class="" href="/contact"><i class="fa fa-user-secret" aria-hidden="true"></i> Contact</a>
             </li>
             <li>
-                <a class="" href="/logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                <form action="/logout" method="post">
+                    @csrf
+                        <button class="text-light" id="btn-logout" type="submit" style="background-color: transparent;border: none;">
+                            <i class="fa fa-sign-out text-left" aria-hidden="true"></i> Logout
+                        </button>
+                </form>
             </li>
         </ul>
         <div>
