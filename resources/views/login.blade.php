@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="row">
-	<div class="col-lg-6 mt-5">
-		<img src="{{asset('gambar/aset1.png')}}" alt="" class="img-fluid">
+	<div class="col-lg-6 mt-3">
+		<img src="{{asset('gambar/img-login.png')}}" alt="" class="img-fluid">
 	</div>
 	<div class="col-lg-6 p-5">
 		<div class="" id="form-login">
