@@ -6,8 +6,8 @@
 </div>
 <div class="row">
 	@foreach($poll->choice as $data)
-	<div class="col-md-4 mb-5" id="card-paslon">
-		<div class="card shadow h-100 " style="width: 18rem;"  id="paslon">
+	<div class="col-12 col-md-4 mb-5" id="card-paslon">
+		<div class="card shadow h-100 "  id="paslon">
 			<center>
 				<img src="{{asset($data->sampul)}}" alt="" class=" w-100">
 			</center>
@@ -26,7 +26,7 @@
 	?>
 	@for($i=0 ; $i < $jlm ; $i++)
 	<div class="col-md-4 mb-3" id="img-none">
-		<div class="card shadow" style="width: 18rem;"  id="paslon">
+		<div class="card shadow w-100"  id="paslon">
 			<center>
 				<button type="submit" class="bg-transparent" style="border:none;outline: none;"><img src="{{asset('gambar/deafult.png')}}" alt="" class="w-100"></button>
 			</center>

@@ -22,9 +22,6 @@ class AuthController extends Controller
 
 		if(!auth()->user()){
 			return redirect('/')->with('status','Kamu harus login dahulu');
-		}elseif (auth()->user()->role == "user") {
-			Auth::logout();
-			return redirect('/')->with('status','Kamu user tidak boleh mengakses halaman admin');
 		}else{
 			return view('admin.admin',['poll'=>$poll]);
 		}
@@ -36,9 +33,6 @@ class AuthController extends Controller
 
 		if(!auth()->user()){
 			return redirect('/')->with('status','Kamu harus login dahulu');
-		}elseif (auth()->user()->role == "user") {
-			Auth::logout();
-			return redirect('/')->with('status','Kamu user tidak boleh mengakses halaman admin');
 		}else{
 			return view('admin.manageuser',['kelas'=>$kelas]);
 		}
@@ -50,9 +44,6 @@ class AuthController extends Controller
 		$poll = Poll::all();
 		if(!auth()->user()){
 			return redirect('/')->with('status','Kamu harus login dahulu');
-		}elseif (auth()->user()->role == "admin") {
-			Auth::logout();
-			return redirect('/')->with('status','Kamu user tidak boleh mengakses halaman admin');
 		}else{
 			$user = auth()->user();
 			$poll = Poll::where("deadline",">=",date("Y-m-d"))
@@ -90,7 +81,7 @@ class AuthController extends Controller
 				return redirect()->intended('/user');
 			}
 		}else{
-			return redirect('/')->with('status','Login gagal harap masukan Id dan password yang benar ');
+			return redirect('/')->with('status','Login gagal cek kembali ID dan Password anda');
 		}
 	}
 

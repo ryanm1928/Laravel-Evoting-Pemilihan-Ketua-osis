@@ -45,7 +45,7 @@
 	<div class="container" style="margin-top:75px">
 		@yield('content')
 	</div>
-</body>
+	
 <footer class="fixed-bottom" style="background-color: #CECECE;">
 	<div class="row p-2">
 		<div class="col-xl-10">

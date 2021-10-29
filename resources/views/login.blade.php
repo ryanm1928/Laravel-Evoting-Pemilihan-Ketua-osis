@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="row">
-	<div class="col-lg-6 mt-3">
+	<div class="col-md-12 col-lg-12 col-xl-6 mt-3">
 		<img src="{{asset('gambar/img-login.png')}}" alt="" class="img-fluid">
 	</div>
-	<div class="col-lg-6 p-5">
+	<div class="col-md-12 col-lg-12 col-xl-6 p-5">
 		<div class="" id="form-login">
 			<center>
 				<div class="h1 mb-4" style="font-style: bold;"> Login</div>
@@ -27,7 +27,6 @@
 						@enderror
 					</div>
 				</div>
-
 				<div class="">
 					<div class="input-group input-group-sm">
 						<div class="input-group-prepend">
@@ -43,8 +42,8 @@
 				</div>
 				<button id="btn-login" type="submit" class="btn btn-primary mt-5 p-2 w-100"><li class="fa fa-key"></li> Login</button>
 				<br>
-			</div>
-		</form>
+			</form>
+		</div>
 		<div class="hilang" id="form-ganti">
 			<form action="/gantisandi" method="post" id="gantisandi-form">
 				@csrf
@@ -93,20 +92,21 @@
 				</div>
 				<button id="btn-ganti" type="submit" class="btn btn-primary mt-3 mb-2 p-2"><li class="fa fa-lock"></li> Ubah Password</button>
 				<div class="btn btn-danger p-2 mt-2"id="cancel">Cancel</div>
-			</div>
-		</form>
-
+			</form>
+		</div>
 	</div>
 </div>
-<div class="row" id="foot-login">
-	<div class="col-sm-8 mt-5">
-		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline; cursor:pointer;"> Ubah Password?</div>
+
+<div class="row justify-content-center" id="foot-login">
+	<div class="col-6 col-sm-6 col-md-8 col-lg-8 mt-5">
+		<div class="text-primary d-inline" id="gantipw" style="text-decoration: underline; cursor:pointer;"> Ubah Password?
+		</div>
 	</div>
-	<div class="col-sm-4 mt-4" id="login-contact">
-		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-facebook-official" aria-hidden="true"></i></a>
-		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-whatsapp" aria-hidden="true"></i></a>
-		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-instagram" aria-hidden="true"></i></a>
-		<a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-2x fa-github" aria-hidden="true"></i></a>
+	<div class="col-6 col-sm-6 col-md-4 col-lg-4 mt-4" id="login-contact">
+		<a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mt-2 fa fa-facebook-official" aria-hidden="true" style="font-size: 25px"></i></a>
+		<a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-whatsapp" aria-hidden="true" style="font-size: 25px"></i></a>
+		<a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-instagram" aria-hidden="true" style="font-size: 25px"></i></a>
+		<a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-github" aria-hidden="true" style="font-size: 25px"></i></a>
 		<div class="text text-muted" style="font-size: 12px">made by MOHAMAD RIYAN</div>
 	</div>
 </div>
