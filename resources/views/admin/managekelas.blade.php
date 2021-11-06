@@ -82,12 +82,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($kelas as $data)
+                @foreach($kelas as $key => $data)
                 <tr>
                     <td>
                         <input type="checkbox" value="{{ $data->id }}" class="cekkelas" name="cekkelas[]">
                     </td>
-                    <td scope="row">{{ $data->id }}</td>
+                    <td scope="row">{{ $kelas->firstItem() + $key }}</td>
                     <td>{{ $data->kelas }}</td>
                     <td></td>
                 </tr>

@@ -90,8 +90,14 @@
 						@enderror
 					</div>
 				</div>
-				<button id="btn-ganti" type="submit" class="btn btn-primary mt-3 mb-2 p-2"><li class="fa fa-lock"></li> Ubah Password</button>
-				<div class="btn btn-danger p-2 mt-2"id="cancel">Cancel</div>
+				<div class="row">
+					<div class="col-md-8">
+						<button id="btn-ganti" type="submit" class="btn btn-primary mt-3 p-2 w-100"><li class="fa fa-lock"></li> Ubah Password</button>
+					</div>
+					<div class="col-md-4 mt-2">
+						<div class="btn btn-danger mt-2 p-2 w-100"id="cancel">Cancel</div>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
