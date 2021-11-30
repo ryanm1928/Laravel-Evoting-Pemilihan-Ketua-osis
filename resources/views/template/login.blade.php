@@ -13,7 +13,7 @@
 	<div class="container pl-0">
 		@yield('content-alert')
 	</div>
-	<div class="container p-5">
+	<div class="container p-2">
 		@yield('content')
 	</div>
 </body>

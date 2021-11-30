@@ -112,17 +112,17 @@
         </div>
     </div>
 </div>
-<div class="row justify-content-center" id="foot-login">
+<div class="row justify-content-center mx-1" id="foot-login">
     <div class="col-6 col-sm-6 col-md-8 col-lg-8 mt-5">
         <a href="#" class="text-primary">Cara voting? </a>
         <a href="#" class="text-primary"> Bantuan?</a>
     </div>
     <div class="col-6 col-sm-6 col-md-4 col-lg-4 mt-4" id="login-contact">
-        <a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mt-2 fa fa-facebook-official" aria-hidden="true" style="font-size: 25px"></i></a>
-        <a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-whatsapp" aria-hidden="true" style="font-size: 25px"></i></a>
-        <a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-instagram" aria-hidden="true" style="font-size: 25px"></i></a>
-        <a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-github" aria-hidden="true" style="font-size: 25px"></i></a>
-        <div class="text text-muted" style="font-size: 12px">made by MOHAMAD RIYAN</div>
+        <a href="https://web.facebook.com/profile.php?id=100010510620299" target="_blank"><i class="text-dark mt-2 mx-1 fa fa-facebook-official" aria-hidden="true" style="font-size: 26px"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=6289513653977&text&app_absent=0" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-whatsapp" aria-hidden="true" style="font-size: 26px"></i></a>
+        <a href="https://www.instagram.com/riyan.rar/" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-instagram" aria-hidden="true" style="font-size: 26px"></i></a>
+        <a href="https://github.com/ryanm1928?tab=repositories" target="_blank"><i class="text-dark mx-1 mt-2 fa fa-github" aria-hidden="true" style="font-size: 26px"></i></a>
+        <div class="text text-muted" style="font-size: 13px">made by MOHAMAD RIYAN</div>
     </div>
 </div>
 <script type="text/javascript">

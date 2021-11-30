@@ -6,14 +6,35 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Poll;
 use App\Models\Kelas;
+use App\Models\User;
 
 class AuthController extends Controller
 {
 
 	public function index()
 	{
-		return view('login');
+		return view('login',
+			[
+				'kelas' => Kelas::where("kelas",'!=','admin')->get()
+			]
+		);
 	}
+
+	public function findUsername($id)
+	{
+
+		return response()->json(['success' => User::where('kelas_id' , $id)->get() ]);
+
+
+	}
+
+	public function findName($id)
+	{
+
+		return response()->json(['success' => User::where('id' , $id)->get() ]);
+
+
+	}	
 
 
 	public function admin()
