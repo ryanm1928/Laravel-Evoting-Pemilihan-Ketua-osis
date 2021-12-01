@@ -19,9 +19,6 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/',[AuthController::class,'index']);
-//ajax login
-Route::post('/login/getkelas/{id}',[AuthController::class,'findUsername']);
-Route::post('/login/getname/{id}',[AuthController::class,'findName']);
 Route::post('/login',[AuthController::class,'actionlogin']);
 
 //admin

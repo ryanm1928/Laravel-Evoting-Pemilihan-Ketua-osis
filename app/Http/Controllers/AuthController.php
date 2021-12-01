@@ -20,23 +20,6 @@ class AuthController extends Controller
 		);
 	}
 
-	public function findUsername($id)
-	{
-
-		return response()->json(['success' => User::where('kelas_id' , $id)->get() ]);
-
-
-	}
-
-	public function findName($id)
-	{
-
-		return response()->json(['success' => User::where('id' , $id)->get() ]);
-
-
-	}	
-
-
 	public function admin()
 	{
 		$poll = Poll::all();
