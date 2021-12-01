@@ -18,7 +18,8 @@
                         </span>
                     </div>
                     <input type="hidden" name="kelas" id="kelas">
-                    <select class="form-control garis" id="choiceKelas" onchange="choiceClass()">
+                    <select class="form-control garis" id="choiceKelas" onchange="choiceClass()" required>
+                        <option value="">--Pilih Kelas--</option>
                         @foreach($kelas as $datakelas)
                         <option value="{{ $datakelas->id }}">{{ $datakelas->kelas }}</option>
                         @endforeach
@@ -31,6 +32,7 @@
                         </span>
                     </div>
                     <select class="form-control garis" id="username" onchange="getName()">
+                        <option value="">--Pilih Nama--</option>
                     </select>
                 </div>
             </div>
@@ -137,100 +139,7 @@
         <div class="text text-muted" style="font-size: 13px">made by MOHAMAD RIYAN</div>
     </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#gantipw').click(function(event) {
-
-        $('#form-login').slideUp(1000);
-
-        $('#form-ganti').slideDown(3000);
-
-
-    });
-
-    $('#cancel').click(function(event) {
-        $('#form-ganti').slideUp(1000);
-        $('#form-login').slideDown(2000);
-
-
-    });
-    $('#gantisandi-form').on('submit', function() {
-        $('#btn-ganti').attr('disabled', 'true');
-        $('#cancel').css('display', 'none');
-
-    });
-
-    $('#form-login').on('submit', function() {
-        $('#btn-login').attr('disabled', 'true');
-
-    });
-
-});
-
-function choiceClass() {
-    const idkelas = $('#choiceKelas').val();
-
-    $("#kelas").val(idkelas);
-
-    const id = $("#kelas").val();
-    $("#username").empty();
-    ajaxKelas(id);
-
-}
-
-function ajaxKelas(id) {
-    
-    $.ajax({
-        url: '/login/getkelas/' + id,
-        type: 'post',
-        data: {
-            _token: $("input[name=_token]").val()
-        },
-        success: function(response, success) {
-            //called when successful
-            const data = response['success'];
-            // console.log(obj);
-            $.each(data, function(i, val) {
-                $("#username").append(`
-                            <option value="${data[i].id}">${data[i].username}</option>
-                        `);
-               
-            });
-
-
-        },
-        error: function(response) {
-            //called when there is an error
-            console.log('error');
-        }
-    });
-}
-
-function getName() {
-    const idName = $("#username").val();
-    $.ajax({
-        url: '/login/getname/' + idName,
-        type: 'post',
-        data: {
-            _token: $("input[name=_token]").val()
-
-        },
-        success :function(response) {
-            for(let i = 0 ;  i < response['success'].length ; i++ )
-            {
-                $("#usernameid").val(response['success'][i].name);
-            }
-        },
-        error : function(response) {
-            console.log("error");
-        }
-    });
-
-
-
-}
-
-</script>
+<script type="text/javascript" src="/js/script-login.js"></script>
 @endsection
 @section('content-alert')
 <div class="row">
@@ -241,7 +150,7 @@ function getName() {
         </div>
         @endif
         @if(session('berhasil'))
-        <div class="alert alert-success w-100" style="position: absolute;">
+        <div class="alert alert-success w-100" style="position: absolute;z-index: 9999">
             <li class="fa fa-check-circle"></li> {{session('berhasil')}}
         </div>
         @endif

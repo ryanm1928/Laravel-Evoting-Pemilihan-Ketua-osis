@@ -97,8 +97,8 @@ class MainController extends Controller
 			'new_password.required' => "Password baru harus di isi"
 		]);
 
-		$user = User::where('name' , $request->username)->get();
-		$check = User::where('name' ,$request->username)->count();
+		$user = User::where('username' , $request->username)->get();
+		$check = User::where('username' ,$request->username)->count();
 
 		if($check == 0)
 		{
