@@ -10,22 +10,34 @@
             <center>
                 <div class="h1 mb-4" style="font-style: bold;"> Login</div>
             </center>
+            <div class="mb-3">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="" id="basic-addon1">
+                            <li class="fa fa-graduation-cap mr-2 mt-2"></li>
+                        </span>
+                    </div>
+                    <input type="hidden" name="kelas" id="kelas">
+                    <select class="form-control garis" id="choiceKelas" onchange="choiceClass()">
+                        @foreach($kelas as $datakelas)
+                        <option value="{{ $datakelas->id }}">{{ $datakelas->kelas }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="input-group input-group-sm mb-4 mt-4">
+                    <div class="input-group-prepend">
+                        <span class="" id="basic-addon1">
+                            <li class="fa fa-user mr-2 mt-2"></li>
+                        </span>
+                    </div>
+                    <select class="form-control garis" id="username" onchange="getName()">
+                    </select>
+                </div>
+            </div>
             <form action="/login" method="post" id="login-form">
                 @csrf
-                <div class=" mb-5">
-                    <div class="input-group input-group-sm">
-                        <div class="input-group-prepend">
-                            <span class="" id="basic-addon1">
-                                <li class="fa fa-user mr-2 mt-2"></li>
-                            </span>
-                        </div>
-                        <input required="" type="text" placeholder="ID" name="name" class="form-control @error('name') is-invalid @enderror garis">
-                        @error('name')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                        @enderror
-                    </div>
+                <div class="">
+                    <input required="" type="hidden" id="usernameid" placeholder="ID" name="name" class="form-control @error('name') is-invalid @enderror garis">
                 </div>
                 <div class="">
                     <div class="input-group input-group-sm">
@@ -155,13 +167,76 @@ $(document).ready(function() {
 
 });
 
+function choiceClass() {
+    const idkelas = $('#choiceKelas').val();
+
+    $("#kelas").val(idkelas);
+
+    const id = $("#kelas").val();
+    $("#username").empty();
+    ajaxKelas(id);
+
+}
+
+function ajaxKelas(id) {
+    
+    $.ajax({
+        url: '/login/getkelas/' + id,
+        type: 'post',
+        data: {
+            _token: $("input[name=_token]").val()
+        },
+        success: function(response, success) {
+            //called when successful
+            const data = response['success'];
+            // console.log(obj);
+            $.each(data, function(i, val) {
+                $("#username").append(`
+                            <option value="${data[i].id}">${data[i].username}</option>
+                        `);
+               
+            });
+
+
+        },
+        error: function(response) {
+            //called when there is an error
+            console.log('error');
+        }
+    });
+}
+
+function getName() {
+    const idName = $("#username").val();
+    $.ajax({
+        url: '/login/getname/' + idName,
+        type: 'post',
+        data: {
+            _token: $("input[name=_token]").val()
+
+        },
+        success :function(response) {
+            for(let i = 0 ;  i < response['success'].length ; i++ )
+            {
+                $("#usernameid").val(response['success'][i].name);
+            }
+        },
+        error : function(response) {
+            console.log("error");
+        }
+    });
+
+
+
+}
+
 </script>
 @endsection
 @section('content-alert')
 <div class="row">
     <div class="col-sm-12">
         @if(session('status'))
-        <div class="alert alert-danger w-100" style="position: absolute;">
+        <div class="alert alert-danger w-100" style="position: absolute;z-index: 9999">
             <li class="fa fa-exclamation-triangle"></li> {{session('status')}}
         </div>
         @endif
