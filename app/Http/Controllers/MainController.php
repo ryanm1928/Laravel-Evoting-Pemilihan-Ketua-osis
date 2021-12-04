@@ -41,18 +41,7 @@ class MainController extends Controller
 	{
 		$value = User::where('id',auth()->user()->id)->get();
 		$vote = Choice::where('id',$id)->get();
-		foreach ($vote as $data) {
-			if($data->bataswaktu->deadline < date('Y-m-d')){
-				abort('404');
-			}
-		}
-		foreach ($value as $user) {
-			if($user->voteuser->count() >= 1){
-				abort('404');
-			}	
-		}
-
-		return view('user.voteuser',compact('vote'));
+		return response()->json(['success' => $vote]);
 
 
 	}

@@ -39,7 +39,7 @@
             <form action="/login" method="post" id="login-form">
                 @csrf
                 <div class="">
-                    <input required="" type="hidden" id="usernameid" placeholder="ID" name="name" class="form-control @error('name') is-invalid @enderror garis">
+                    <input value="admin" required="" type="hidden" id="usernameid" placeholder="ID" name="name" class="form-control @error('name') is-invalid @enderror garis">
                 </div>
                 <div class="">
                     <div class="input-group input-group-sm">

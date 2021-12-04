@@ -84,7 +84,7 @@ Route::group(['middleware'=>['Authprotected']],function(){
 Route::group(['middleware' => ['Userprotected']],function(){
 	Route::get('/user',[AuthController::class,'user']);
 	Route::get('/voting/{id}/{poll::slug}',[MainController::class,'polling']);
-	Route::get('/vote/{id}',[MainController::class,'voteuser']);
+	Route::post('/vote/{id}',[MainController::class,'voteuser']);
 	Route::post('/voting/{id}/{poll::slug}',[MainController::class,'actionpolling']);
 	Route::get('/user-mails',[MainController::class,'pesan']);
 	Route::post('/send-mails',[MainController::class,'send']);

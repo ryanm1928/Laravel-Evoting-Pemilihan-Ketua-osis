@@ -102,7 +102,7 @@ class AuthController extends Controller
 				return redirect()->intended('/user');
 			}
 		}else{
-			return redirect('/')->with('status','Login gagal cek kembali ID dan Password anda');
+			return redirect('/')->with('status','Login gagal cek kembali Password anda');
 		}
 	}
 

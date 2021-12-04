@@ -62,6 +62,7 @@ function ajaxKelas(id) {
             //called when successful
             const data = response['success'];
             // console.log(obj);
+            $("#username").append('<option value="">--Pilih Nama--</option>');
             $.each(data, function(i, val) {
                 $("#username").append(`
                             <option value="${data[i].id}">${data[i].username}</option>
