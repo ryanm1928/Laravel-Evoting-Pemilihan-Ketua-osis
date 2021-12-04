@@ -17,6 +17,7 @@ class MainController extends Controller
 	{
 		$value = User::where('id',auth()->user()->id)->get();
 		$data = Poll::where('id',$id->id)->get();
+		$vote = Choice::where('id',$id)->get();
 
 		foreach ($value as $user) {
 			if($user->voteuser->count() >= 1){
@@ -30,7 +31,7 @@ class MainController extends Controller
 				abort('404');
 			}else{
 				$hitung = Choice::where('poll_id',$id->id)->count();
-				return view('user.polling',['poll' => $id,'hitung' => $hitung]);
+				return view('user.polling',['poll' => $id,'hitung' => $hitung,'vote' => $vote]);
 			}
 		}
 
@@ -41,18 +42,7 @@ class MainController extends Controller
 	{
 		$value = User::where('id',auth()->user()->id)->get();
 		$vote = Choice::where('id',$id)->get();
-		foreach ($vote as $data) {
-			if($data->bataswaktu->deadline < date('Y-m-d')){
-				abort('404');
-			}
-		}
-		foreach ($value as $user) {
-			if($user->voteuser->count() >= 1){
-				abort('404');
-			}	
-		}
-
-		return view('user.voteuser',compact('vote'));
+		return response()->json(['success' => $vote]);
 
 
 	}

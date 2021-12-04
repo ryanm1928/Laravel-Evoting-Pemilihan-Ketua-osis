@@ -19,11 +19,5 @@
 </center>
 @endforeach
 
-<script type="text/javascript">
-	$('#form-vote').on('submit',function(){
-		$('#pilih').attr('disabled', 'true');
-		$('#btn-kembali').css('display', 'none');
 
-	});
-</script>
 @endif
