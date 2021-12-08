@@ -1,3 +1,17 @@
+@extends('template.layout')
+@section('title','Hasil Voting')
+@section('lihat','active-nav-item')
+@section('content')
+<div id="result-text">
+	<div class="h3">Hasil Voting
+		<a href="" title="Refresh"><li class=" fa fa-refresh"></li></a>
+	</div>
+<div style="font-size: 15px" class="text-secondary">*Tekan icon refresh untuk melihat data baru</div>
+</div>
+<center>
+	<div class="h3" id="result-text-print">Hasil Voting</div>
+</center>
+<hr>
 <div class="row">
 	<div class="col-xl-4 mb-2 text-light " id="userdata">
 		<div class="bg-primary p-2 shadow">
@@ -68,3 +82,4 @@
 		</tbody>
 	</table>
 </div>
+@endsection

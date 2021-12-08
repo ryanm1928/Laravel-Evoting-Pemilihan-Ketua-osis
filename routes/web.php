@@ -55,7 +55,8 @@ Route::group(['middleware'=>['Authprotected']],function(){
 	Route::get('/userdata',[UserController::class,'userdata']);
 
 	//ajax Route Hapus
-	Route::get('/polldelete/{id}',[PollController::class,'polldelete']);
+	Route::post('/polldelete/{id}',[PollController::class,'polldelete']);
+	Route::delete('/voting/delete',[PollController::class,'destroy']);
 
 
 

@@ -3,10 +3,6 @@
 @section('lihat','active-nav-item')
 @section('content')
 <div class="h3" id="result-text">Hasil Voting</div>
-<center>
-	<div class="h3" id="result-text-print">Hasil Voting</div>
-</center>
-<hr>
 @if(session('status'))
 <div class="alert alert-success"><li class="fa fa-check-circle"></li> {{session('status')}}
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -31,30 +27,10 @@
 				<td align="center">{{$data->title}}</td>
 				<td align="center">{{$data->description}}</td>
 				<td align="center">{{$data->deadline}}</td>
-				<td align="center"><button class="btn btn-outline-primary" onclick="hasil('{{$data->id}}')" data-placement="right" title="Lihat hasil"><i class="fa fa-eye" aria-hidden="true"></i> </button class="btn btn-warning text-light"></th>
+				<td align="center"><a href="/result/{{ $data->id }}" class="btn btn-outline-primary" data-placement="right" title="Lihat hasil"><i class="fa fa-eye" aria-hidden="true"></i> </a class="btn btn-warning text-light"></th>
 				</tr>
 				@endforeach
 			</tbody>
 		</table>
 	</div>
-	<script type="text/javascript">
-
-
-		function hasil(id)
-		{		
-			var j=0;
-			setInterval(function () {
-				j++;
-				if(j == 1){
-					$.get("{{url('result')}}/ " + id,{}, function(data,status) {
-						$('#data').html(data)
-					});
-					j = 0;
-				}
-			},2000);
-
-
-		}
-	</script>
-
-	@endsection
+@endsection

@@ -34,16 +34,16 @@ class UserController extends Controller
         ]);
 
         $file = $request->file('data');
-
-        $namafile = $file->getClientOriginalName();
+        $path = $file->store('gambar');
         try {
-            $file->move('gambar',$namafile);
-            Excel::import(new UsersImport, \public_path('/gambar/'.$namafile));
+           
+            Excel::import(new UsersImport, \public_path('/'.$path));
         } catch (\Exception $e) {
+            unlink($path);
             return back()->with('erorr','Gagal mengimport data silahkan cek file anda dan data yang anda masukan');
         }
 
-
+        unlink($path);
         return redirect('/datauser')->with('status', 'Import data berhasil');
 
     }      

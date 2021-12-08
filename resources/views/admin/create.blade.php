@@ -95,7 +95,7 @@
 	</div>
 	<div class="row mt-4">
 		<div class="col-sm-12">
-			<button type="submit" id="btn-create" class="btn btn-success w-100"><i class="fa fa-save" aria-hidden="true"></i> Buat polling</button>
+			<button type="submit" id="btn-create" class="btn btn-success w-100"><i class="fa fa-save" aria-hidden="true"></i> Buat voting</button>
 		</div>
 	</div>
 </form>

@@ -76,7 +76,6 @@
             <div class="">
                 <button type="button" id="sidebarCollapse" class="btn btn-info navbar-toggle">
                     <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
-                    <span  ></span>
                 </button>
             </div>
         </nav>

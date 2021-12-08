@@ -83,6 +83,7 @@ function uservote(id) {
     $('.text-center').html(`<div class="spinner-border" role="status">
 				    <span class="sr-only">Loading...</span>
 				  </div>`);
+    $('#pilih').attr('disabled', 'true');
     jQuery.ajax({
         url: '/vote/' + id,
         type: 'POST',
@@ -100,7 +101,7 @@ function uservote(id) {
                 $('.loading').html(`<div class="spinner-border d-none text-primary" role="status">
 				    <span class="sr-only">Loading...</span>
 				  </div>`);
-
+                $('#pilih').removeAttr('disabled');
                 var src = "{{asset('/')}}" + data[i].sampul;
                 var action = "/"
                 $('#votename').html(data[i].name);

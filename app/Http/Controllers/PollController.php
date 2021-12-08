@@ -179,17 +179,13 @@ class PollController extends Controller
         ]); 
 
 
-      if($request->file('sampul') == null)
+      if($request->file('sampul'))
       {
-        Choice::where('id',$id)
-        ->update([
-          'name' => $request->choice,
-          'visi' => $request->visi,
-          'misi' => $request->misi
-        ]);
-        return redirect('/admin')->with('status','Choice berhasil di update');
-
-      }else{
+        $data = Choice::where('id',$id)->get();
+        foreach ($data as $choice) {
+          unlink($choice->sampul);
+            
+        }
         $sampul = $request->file('sampul');
         $sampul = $request->sampul;
         Choice::where('id',$id)
@@ -198,12 +194,17 @@ class PollController extends Controller
           'visi' => $request->visi,
           'misi' => $request->misi,
           'sampul' => $sampul->store('gambar')
+        ]); 
+
+      }else{
+        Choice::where('id',$id)
+        ->update([
+          'name' => $request->choice,
+          'visi' => $request->visi,
+          'misi' => $request->misi
         ]);
 
       }
-
-
-
       return redirect('/admin')->with('status','Choice berhasil di update');
 
     }
@@ -214,15 +215,15 @@ class PollController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Poll $poll)
+    public function destroy(Request $request)
     {
     
-      $sampul = Choice::where('poll_id',$poll->id)->get();
+      $sampul = Choice::where('poll_id',$request->id)->get();
       foreach($sampul as $data)
       {
         unlink($data->sampul);
       }
-      Poll::destroy($poll->id);
+      Poll::destroy($request->id);
 
      return redirect('admin')->with('delete','Data telah berhasil di hapus');
     }
@@ -300,7 +301,7 @@ class PollController extends Controller
   {
     $poll = Poll::where('id',$id)->get();
 
-    return view('admin.hapus.polldelete',compact('poll'));
+    return response()->json(['success' => $poll]);
   }
 
 }

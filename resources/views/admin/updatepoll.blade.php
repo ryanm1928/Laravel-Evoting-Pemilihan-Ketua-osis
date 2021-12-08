@@ -27,7 +27,7 @@
 </form>
 
 
-<div class="h3 mt-4">Update Choice</div>
+<div class="h3 mt-4">Update Kadidat</div>
 <hr>
 <div class="table-responsive">
 	<table class="table">

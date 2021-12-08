@@ -3,7 +3,7 @@
 @section('home','active-nav-item')
 @section('content')
 
-<div class="h3 mb-2">Edit Choice</div>
+<div class="h3 mb-2">Edit Kadidat</div>
 <hr>
 <form action="/updatechoice/{{$id->id}}" method="post" enctype="multipart/form-data" id="form-edit-choice">
 	@csrf
@@ -22,8 +22,7 @@
 			<textarea name="misi" id="" cols="30" rows="10" class="form-control" required="">{{$id->misi}}</textarea>
 		</div>
 	</div>
-	<div class="row mt-4">
-		
+	<div class="row mt-4">	
 		<div class="col-sm-8 d-block">
 			<label for="">Masukan Sampul Baru:</label>
 			<input type="file" onchange="berubah()" id="sampul" name="sampul" class="form-control">
